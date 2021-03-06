@@ -1,0 +1,165 @@
+{
+  "DefaultCategoryName": "Inne",
+
+  "ValueDateColumn": { "ColumnName": "\"Data waluty\"" },
+  "AmountColumn": { "ColumnName": "\"Kwota\"" },
+  "TitleColumn": { "ColumnIndex": "9" },
+  "SourceColumn": { "ColumnIndex": "7" },
+
+  "CategoryDictionary": {
+    "Alkohol": [
+      { "Source": "du¿y ben" },
+      { "Source": "duzy ben" },
+      { "Source": "klub kultowy" },
+      { "Source": "kolejka pub" },
+      { "Source": "pub" },
+      { "Source": "amore del tropico" },
+      { "Source": "kontenerart" }
+    ],
+
+    "Allegro": [
+      { "Source": "allegro.pl" }
+
+    ],
+
+    "Datki": [
+      { "Source": "malibracia" },
+      { "Source": "zrzutka" }
+    ],
+
+    "Dom": [
+      { "Source": "ikea" },
+      { "Source": "leroy merlin" },
+      { "Source": "castorama" }
+    ],
+
+    "Gry": [
+      { "Source": "steam" },
+      { "Source": "Valve" },
+      { "Source": "humblebundle" },
+      { "Source": "humblebundl" },
+      { "Source": "blizzardent" },
+      { "Source": "ea.com" },
+      { "Source": "www.g2a.com" }
+    ],
+
+    "Hotele": [
+      { "Source": "booking" }
+    ],
+
+    "Jedzenie": [
+      { "Source": "biedronka" },
+      { "Source": "zabka" },
+      { "Source": "pyszne.pl" },
+      { "Source": "lidl" },
+      { "Source": "kfc" },
+      { "Source": "sportinfo" },
+      { "Source": "pizzahut" },
+      { "Source": "amrest" },
+      { "Source": "skubacz.pl" },
+      { "Source": "slimak" },
+      { "Source": "carrefour" },
+      { "Source": "polomarket" },
+      { "Source": "starbucks" },
+      { "Source": "burgerownia" },
+      { "Source": "lewiatan" },
+      { "Source": "burger" },
+      { "Source": "mcdonalds" },
+      { "Source": "stokrotka" },
+      { "Source": "burgs chef" },
+      { "Source": "fawor" },
+      { "Source": "restaumatic" },
+      { "Source": "piccolo" },
+      { "Source": "kuchnia marche" },
+      { "Source": "zaczek" },
+      { "Source": "pasibus" },
+      { "Source": "glodny.pl" },
+      { "Source": "stary mlynek" },
+      { "Source": "kebab" },
+      { "Source": "pizza" },
+      { "Source": "pasztecik" },
+      { "Source": "kuchnie marche" },
+      { "Source": "stacja cafe" },
+      { "Source": "kawiarnia u przyjaciol" },
+      { "Source": "sklep spozywczy" },
+      { "Source": "piotr i pawel" },
+      { "Source": "cukiernia sowa" },
+      { "Source": "food & drinks" },
+      { "Source": "auchan" }
+    ],
+
+    "Restauracje": [
+      { "Source": "restauracja" },
+      { "Source": "barn s.c. Renata" },
+      { "Source": "scisk barbara knobloch" },
+      { "Source": "food matters" }
+    ],
+
+    "Telefon": [
+      { "Source": "virginmobile.pl" },
+      { "Source": "24.play.pl" }
+    ],
+
+    "Internet": [ { "Source": "www.inea.pl" } ],
+    "Paliwo": [
+      { "Source": "shell" },
+      { "Source": "bp" },
+      { "Source": "orlen" },
+      { "Source": "circle k" },
+      { "Source": "lotos" }
+    ],
+
+    "Netflix": [
+      { "Source": "netflix.com" },
+      { "Source": "netflix" },
+      { "Title": "netflix" },
+      { "Title": "net zrzutka" }
+    ],
+
+    "Mieszkanie": [
+      { "Source": "profit zarz¹dzanie nieruchomoœciami" }
+    ],
+
+    "Pr¹d": [
+      { "Title": "za pr¹d" }
+    ],
+
+    "Podarunki": [
+      { "Source": "lilou" },
+      { "Source": "kwiaciarnia" },
+      { "Source": "el krepel" }
+    ],
+
+    "Odzie¿": [
+      { "Source": "new yorker" },
+      { "Source": "deichmann" }
+    ],
+
+    "Sport": [
+      { "Source": "decathlon" },
+      { "Source": "wirtualnebiegi" }
+    ],
+
+    "Sprzêt": [
+      { "Source": "x-kom.pl" }
+    ],
+
+    "Uber": [
+      { "Source": "uber" }
+    ],
+
+    "Ubezpieczenie": [
+      { "Source": "ergo hestia" }
+    ],
+
+    "Wynagrodzenie": [
+      { "Source": "exant" },
+      { "Source": "halasdev" }
+    ],
+
+    "Zdrowie": [
+      { "Source": "rehasport" },
+      { "Source": "apteka" }
+    ]
+  }
+}

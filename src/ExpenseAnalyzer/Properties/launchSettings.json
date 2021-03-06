@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "DataAnalyzer": {
+      "commandName": "Project",
+      "commandLineArgs": "--file=./history.csv --bank-type=PkoBP"
+    }
+  }
+}

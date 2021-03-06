@@ -1,0 +1,1 @@
+DataAnalyzer.exe --file=./history.csv --bank-type=PkoBP
