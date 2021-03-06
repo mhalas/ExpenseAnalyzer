@@ -5,6 +5,7 @@ namespace Shared.BankAnalyzer
 {
     public interface IBankAnalyzer
     {
+        bool CanExecute();
         IEnumerable<ExpenseDataRow> AnalyzeExpenseHistory(string historyData);
     }
 }

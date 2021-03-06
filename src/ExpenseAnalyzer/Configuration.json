@@ -1,165 +1,170 @@
 {
   "DefaultCategoryName": "Inne",
 
-  "ValueDateColumn": { "ColumnName": "\"Data waluty\"" },
-  "AmountColumn": { "ColumnName": "\"Kwota\"" },
-  "TitleColumn": { "ColumnIndex": "9" },
-  "SourceColumn": { "ColumnIndex": "7" },
+  "ColumnDefinitions": {
+    "ValueDateColumn": { "ColumnName": "\"Data waluty\"" },
+    "AmountColumn": { "ColumnName": "\"Kwota\"" },
+    "TitleColumn": { "ColumnIndex": "9" },
+    "SourceColumn": { "ColumnIndex": "7" }
+  },
 
   "CategoryDictionary": {
     "Alkohol": [
-      { "Source": "du¿y ben" },
-      { "Source": "duzy ben" },
-      { "Source": "klub kultowy" },
-      { "Source": "kolejka pub" },
-      { "Source": "pub" },
-      { "Source": "amore del tropico" },
-      { "Source": "kontenerart" }
+      "duÅ¼y ben",
+      "duzy ben",
+      "klub kultowy",
+      "kolejka pub",
+      "pub",
+      "amore del tropico",
+      "kontenerart"
     ],
 
     "Allegro": [
-      { "Source": "allegro.pl" }
+      "allegro.pl"
 
     ],
 
     "Datki": [
-      { "Source": "malibracia" },
-      { "Source": "zrzutka" }
+      "malibracia",
+      "zrzutka"
     ],
 
     "Dom": [
-      { "Source": "ikea" },
-      { "Source": "leroy merlin" },
-      { "Source": "castorama" }
+      "ikea",
+      "leroy merlin",
+      "castorama"
     ],
 
     "Gry": [
-      { "Source": "steam" },
-      { "Source": "Valve" },
-      { "Source": "humblebundle" },
-      { "Source": "humblebundl" },
-      { "Source": "blizzardent" },
-      { "Source": "ea.com" },
-      { "Source": "www.g2a.com" }
+      "steam",
+      "Valve",
+      "humblebundle",
+      "humblebundl",
+      "blizzardent",
+      "ea.com",
+      "www.g2a.com"
     ],
 
     "Hotele": [
-      { "Source": "booking" }
+      "booking"
     ],
 
     "Jedzenie": [
-      { "Source": "biedronka" },
-      { "Source": "zabka" },
-      { "Source": "pyszne.pl" },
-      { "Source": "lidl" },
-      { "Source": "kfc" },
-      { "Source": "sportinfo" },
-      { "Source": "pizzahut" },
-      { "Source": "amrest" },
-      { "Source": "skubacz.pl" },
-      { "Source": "slimak" },
-      { "Source": "carrefour" },
-      { "Source": "polomarket" },
-      { "Source": "starbucks" },
-      { "Source": "burgerownia" },
-      { "Source": "lewiatan" },
-      { "Source": "burger" },
-      { "Source": "mcdonalds" },
-      { "Source": "stokrotka" },
-      { "Source": "burgs chef" },
-      { "Source": "fawor" },
-      { "Source": "restaumatic" },
-      { "Source": "piccolo" },
-      { "Source": "kuchnia marche" },
-      { "Source": "zaczek" },
-      { "Source": "pasibus" },
-      { "Source": "glodny.pl" },
-      { "Source": "stary mlynek" },
-      { "Source": "kebab" },
-      { "Source": "pizza" },
-      { "Source": "pasztecik" },
-      { "Source": "kuchnie marche" },
-      { "Source": "stacja cafe" },
-      { "Source": "kawiarnia u przyjaciol" },
-      { "Source": "sklep spozywczy" },
-      { "Source": "piotr i pawel" },
-      { "Source": "cukiernia sowa" },
-      { "Source": "food & drinks" },
-      { "Source": "auchan" }
+      "biedronka",
+      "zabka",
+      "pyszne.pl",
+      "lidl",
+      "kfc",
+      "sportinfo",
+      "pizzahut",
+      "amrest",
+      "skubacz.pl",
+      "slimak",
+      "carrefour",
+      "polomarket",
+      "starbucks",
+      "burgerownia",
+      "lewiatan",
+      "burger",
+      "mcdonalds",
+      "stokrotka",
+      "burgs chef",
+      "fawor",
+      "restaumatic",
+      "piccolo",
+      "kuchnia marche",
+      "zaczek",
+      "pasibus",
+      "glodny.pl",
+      "stary mlynek",
+      "kebab",
+      "pizza",
+      "pasztecik",
+      "kuchnie marche",
+      "stacja cafe",
+      "kawiarnia u przyjaciol",
+      "sklep spozywczy",
+      "piotr i pawel",
+      "cukiernia sowa",
+      "food & drinks",
+      "auchan",
+      "https://dagrasso.pl",
+      "BERLIN Doner Kebap",
+      "aldi"
     ],
 
     "Restauracje": [
-      { "Source": "restauracja" },
-      { "Source": "barn s.c. Renata" },
-      { "Source": "scisk barbara knobloch" },
-      { "Source": "food matters" }
+      "restauracja",
+      "barn s.c. Renata",
+      "scisk barbara knobloch",
+      "food matters"
     ],
 
     "Telefon": [
-      { "Source": "virginmobile.pl" },
-      { "Source": "24.play.pl" }
+      "virginmobile.pl",
+      "24.play.pl"
     ],
 
-    "Internet": [ { "Source": "www.inea.pl" } ],
+    "Internet": [ "www.inea.pl" ],
     "Paliwo": [
-      { "Source": "shell" },
-      { "Source": "bp" },
-      { "Source": "orlen" },
-      { "Source": "circle k" },
-      { "Source": "lotos" }
+      "shell",
+      "bp",
+      "orlen",
+      "circle k",
+      "lotos"
     ],
 
     "Netflix": [
-      { "Source": "netflix.com" },
-      { "Source": "netflix" },
-      { "Title": "netflix" },
-      { "Title": "net zrzutka" }
+      "netflix.com",
+      "netflix",
+      "netflix",
+      "net zrzutka"
     ],
 
     "Mieszkanie": [
-      { "Source": "profit zarz¹dzanie nieruchomoœciami" }
+      "profit zarzï¿½dzanie nieruchomoï¿½ciami"
     ],
 
-    "Pr¹d": [
-      { "Title": "za pr¹d" }
+    "PrÄ…d": [
+      "za prï¿½d"
     ],
 
     "Podarunki": [
-      { "Source": "lilou" },
-      { "Source": "kwiaciarnia" },
-      { "Source": "el krepel" }
+      "lilou",
+      "kwiaciarnia",
+      "el krepel"
     ],
 
-    "Odzie¿": [
-      { "Source": "new yorker" },
-      { "Source": "deichmann" }
+    "OdzieÅ¼": [
+      "new yorker",
+      "deichmann"
     ],
 
     "Sport": [
-      { "Source": "decathlon" },
-      { "Source": "wirtualnebiegi" }
+      "decathlon",
+      "wirtualnebiegi"
     ],
 
-    "Sprzêt": [
-      { "Source": "x-kom.pl" }
+    "SprzÄ™t": [
+      "x-kom.pl"
     ],
 
     "Uber": [
-      { "Source": "uber" }
+      "uber"
     ],
 
     "Ubezpieczenie": [
-      { "Source": "ergo hestia" }
+      "ergo hestia"
     ],
 
     "Wynagrodzenie": [
-      { "Source": "exant" },
-      { "Source": "halasdev" }
+      "exant",
+      "halasdev"
     ],
 
     "Zdrowie": [
-      { "Source": "rehasport" },
-      { "Source": "apteka" }
+      "rehasport",
+      "apteka"
     ]
   }
 }

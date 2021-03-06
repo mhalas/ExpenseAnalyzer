@@ -4,29 +4,16 @@ namespace Shared.Configuration
 {
     public class ConfigurationDto
     {
-        public ConfigurationDto(IDictionary<string, List<ConfigurationCategoryFilterDto>> categoryDictionary,
-            string defaultCategoryName, 
-            ConfigurationColumnDto valueDateColumn, 
-            ConfigurationColumnDto amountColumn, 
-            ConfigurationColumnDto titleColumn, 
-            ConfigurationColumnDto sourceColumn)
+        public ConfigurationDto(string defaultCategoryName,
+            IDictionary<string, ConfigurationColumnDto> columnDefinitions,
+            IDictionary<string, List<string>> categoryDictionary)
         {
             CategoryDictionary = categoryDictionary;
             DefaultCategoryName = defaultCategoryName;
-            ValueDateColumn = valueDateColumn;
-            AmountColumn = amountColumn;
-            TitleColumn = titleColumn;
-            SourceColumn = sourceColumn;
+            ColumnDefinitions = columnDefinitions;
         }
-
-        public IDictionary<string, List<ConfigurationCategoryFilterDto>> CategoryDictionary { get; }
-
         public string DefaultCategoryName { get; set; }
-
-        public ConfigurationColumnDto ValueDateColumn { get; set; }
-        public ConfigurationColumnDto AmountColumn { get; set; }
-        public ConfigurationColumnDto TitleColumn { get; set; }
-        public ConfigurationColumnDto SourceColumn { get; set; }
-
+        public IDictionary<string, ConfigurationColumnDto> ColumnDefinitions { get; }
+        public IDictionary<string, List<string>> CategoryDictionary { get; }
     }
 }

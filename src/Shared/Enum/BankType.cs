@@ -2,6 +2,7 @@
 {
     public enum BankType
     {
+        AmericanExpress,
         PkoBP
     }
 }

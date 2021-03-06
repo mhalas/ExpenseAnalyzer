@@ -105,23 +105,19 @@ namespace Shared.Output
             history.Cells[1, 2].Value = "Kwota";
             history.Cells[1, 2].AutoFilter = true;
 
-            history.Cells[1, 3].Value = "Tytuł";
+            history.Cells[1, 3].Value = "Opis";
             history.Cells[1, 3].AutoFilter = true;
 
-            history.Cells[1, 4].Value = "Źródło";
+            history.Cells[1, 4].Value = "Kategoria";
             history.Cells[1, 4].AutoFilter = true;
-
-            history.Cells[1, 5].Value = "Kategoria";
-            history.Cells[1, 5].AutoFilter = true;
 
             int rowNumber = 2;
             foreach (var expense in data)
             {
                 history.Cells[rowNumber, 1].Value = expense.ValueDate.ToString("yyyy-MM-dd");
                 history.Cells[rowNumber, 2].Value = expense.Amount;
-                history.Cells[rowNumber, 3].Value = expense.Title;
-                history.Cells[rowNumber, 4].Value = expense.Source;
-                history.Cells[rowNumber, 5].Value = expense.Category;
+                history.Cells[rowNumber, 3].Value = expense.Description;
+                history.Cells[rowNumber, 4].Value = expense.Category;
 
                 rowNumber++;
             }

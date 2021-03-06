@@ -4,22 +4,20 @@ namespace Shared.Dto
 {
     public class ExpenseDataRow
     {
-        public ExpenseDataRow(DateTime valueDate, decimal amount, string title, string source)
+        public ExpenseDataRow(DateTime valueDate, decimal amount, string description, string category)
         {
             ValueDate = valueDate;
             Amount = amount;
-            Title = title;
-            Source = source;
+            Description = description;
+            Category = category;
         }
 
         public DateTime ValueDate { get; }
 
         public decimal Amount { get; }
 
-        public string Title { get; }
+        public string Description { get; }
 
-        public string Source { get; }
-
-        public string Category { get; set; }
+        public string Category { get; }
     }
 }

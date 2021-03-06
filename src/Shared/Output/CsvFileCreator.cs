@@ -26,11 +26,11 @@ namespace Shared.Output
             Logger.Debug("Create CSV file.");
 
             StringBuilder stringBuilder = new StringBuilder();
-            stringBuilder.AppendLine("\"Data waluty\",\"Kwota\",\"Tytuł\",\"Źródło\",\"Kategoria\"");
+            stringBuilder.AppendLine("\"Data waluty\",\"Kwota\",\"Opis\",\"Kategoria\"");
 
             foreach (var row in data)
             {
-                stringBuilder.AppendLine($"\"{row.ValueDate.ToString("yyyy-MM-dd")}\",\"{row.Amount}\",\"{row.Title}\",\"{row.Source}\",\"{row.Category}\"");
+                stringBuilder.AppendLine($"\"{row.ValueDate.ToString("yyyy-MM-dd")}\",\"{row.Amount}\",\"{row.Description}\",\"{row.Category}\"");
             }
 
             stringBuilder.AppendLine();

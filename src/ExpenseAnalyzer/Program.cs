@@ -50,18 +50,24 @@ namespace ExpenseAnalyzer
                 var bankAnalyzer = new BankFactory(configuration).GetBankAnalyzer(parameters.Bank);
                 var outputLogic = new DataOutputFactory(parameters.FilePath).GetDataOutput(parameters.Output);
 
-                using (var reader = new StreamReader(parameters.FilePath))
+                if (bankAnalyzer.CanExecute())
                 {
-                    Logger.Info("Start analyzing.");
-                    time.Start();
-                    var result = bankAnalyzer.AnalyzeExpenseHistory(reader.ReadToEnd());
-                    Logger.Info("Analyze complete.");
+                    using (var reader = new StreamReader(parameters.FilePath))
+                    {
+                        Logger.Info("Start analyzing.");
+                        time.Start();
+                        var result = bankAnalyzer.AnalyzeExpenseHistory(reader.ReadToEnd());
+                        Logger.Info("Analyze complete.");
 
-                    outputLogic.OutputData(result).Wait();
+                        outputLogic.OutputData(result).Wait();
 
-                    time.Stop();
-                    Logger.Info($"Complete in time {time.Elapsed.Hours}:{time.Elapsed.Minutes}:{time.Elapsed.Seconds}.");
+                        time.Stop();
+                        Logger.Info($"Complete in time {time.Elapsed.Hours}:{time.Elapsed.Minutes}:{time.Elapsed.Seconds}.");
+                    }
                 }
+                else
+                    Logger.Info("Analyzing not started.");
+
             }
             catch(Exception ex)
             {
