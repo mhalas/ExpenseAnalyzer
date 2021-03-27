@@ -37,7 +37,7 @@ namespace ExpenseAnalyzer
             }
             catch (ParameterException parameterException)
             {
-                Logger.Error("Parameter error occured.", parameterException);
+                Logger.Error($"Parameter error occured. \nDescription: {parameterException.Message}\nStackTrace: {parameterException.StackTrace}");
                 return;
             }
 

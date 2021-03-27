@@ -1,11 +1,10 @@
 {
-  "DefaultCategoryName": "Inne",
+  "DefaultCategoryName": "Other",
 
   "ColumnDefinitions": {
-    "ValueDateColumn": { "ColumnName": "\"Data waluty\"" },
-    "AmountColumn": { "ColumnName": "\"Kwota\"" },
-    "TitleColumn": { "ColumnIndex": "9" },
-    "SourceColumn": { "ColumnIndex": "7" }
+    "ValueDateColumn": { "ColumnName": "Date" },
+    "AmountColumn": { "ColumnName": "Amount" },
+    "DescriptionColumn": { "ColumnName": "Description" }
   },
 
   "CategoryDictionary": {
@@ -90,7 +89,8 @@
       "auchan",
       "https://dagrasso.pl",
       "BERLIN Doner Kebap",
-      "aldi"
+      "aldi",
+      "SAINSBURY'S"
     ],
 
     "Restauracje": [
@@ -114,19 +114,20 @@
       "lotos"
     ],
 
-    "Netflix": [
+    "Telewizja": [
       "netflix.com",
       "netflix",
-      "netflix",
-      "net zrzutka"
+      "net zrzutka",
+      "AMAZON PRIME",
+      "PRIME VIDEO"
     ],
 
     "Mieszkanie": [
-      "profit zarz�dzanie nieruchomo�ciami"
+      "profit zarządzanie nieruchomościami"
     ],
 
     "Prąd": [
-      "za pr�d"
+      "za prąd"
     ],
 
     "Podarunki": [
@@ -137,7 +138,8 @@
 
     "Odzież": [
       "new yorker",
-      "deichmann"
+      "deichmann",
+      "NEXTDIRECTORY"
     ],
 
     "Sport": [
@@ -164,7 +166,16 @@
 
     "Zdrowie": [
       "rehasport",
-      "apteka"
+      "apteka",
+      "SIMBASLEEP"
+    ],
+
+    "OnlineShipping": [
+      "AMZNMKTPLACE"
+    ],
+
+    "Everything": [
+      "JOHN LEWIS DIRECT"
     ]
   }
 }

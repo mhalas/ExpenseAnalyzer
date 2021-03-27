@@ -25,7 +25,7 @@ namespace ExpenseAnalyzer.Parameters
 
             var bankType = (BankType)Enum.Parse(typeof(BankType), parametersDictionary[BankTypeParameterName]);
 
-            OutputType outputType = OutputType.CSV;
+            OutputType outputType = OutputType.Csv;
             if (parametersDictionary.ContainsKey(OutputFormatParameterName))
             {
                 if(Enum.IsDefined(typeof(OutputType), (object)parametersDictionary[OutputFormatParameterName]))

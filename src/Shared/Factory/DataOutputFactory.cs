@@ -18,7 +18,7 @@ namespace Shared.Factory
             {
                 case OutputType.Excel:
                     return new ExcelFileCreator(_originFilePath);
-                case OutputType.CSV:
+                case OutputType.Csv:
                 default:
                     return new CsvFileCreator(_originFilePath);
 
