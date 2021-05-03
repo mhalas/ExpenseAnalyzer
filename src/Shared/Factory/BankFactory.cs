@@ -17,8 +17,6 @@ namespace Shared.Factory
         {
             switch (type)
             {
-                case BankType.AmericanExpress:
-                    return new AmericanExpressDataAnalyzer(_configuration);
                 case BankType.PkoBP:
                 default:
                     return new PkoBpDataAnalyzer(_configuration);

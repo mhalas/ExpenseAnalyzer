@@ -101,13 +101,13 @@ namespace Shared.BankAnalyzer
         {
             var category = _configuration.CategoryDictionary.FirstOrDefault(x => x.Value.Any(y => rowColumns[sourceIndex].ToLower().Contains(y.ToLower())));
             if (category.Key != null)
-                return (rowColumns[sourceIndex], category.Key);
+                return (rowColumns[sourceIndex].Replace("\"", ""), category.Key.Replace("\"", ""));
 
             category = _configuration.CategoryDictionary.FirstOrDefault(x => x.Value.Any(y => rowColumns[titleIndex].ToLower().Contains(y.ToLower())));
             if (category.Key == null)
-                return (string.Empty, _configuration.DefaultCategoryName);
+                return (rowColumns[sourceIndex].Replace("\"", ""), _configuration.DefaultCategoryName);
             else
-                return (rowColumns[titleIndex], category.Key);
+                return (rowColumns[titleIndex].Replace("\"", ""), category.Key.Replace("\"", ""));
         }
     }
 }

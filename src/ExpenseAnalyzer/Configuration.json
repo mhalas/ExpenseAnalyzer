@@ -1,170 +1,180 @@
 {
-  "DefaultCategoryName": "Inne",
+    "DefaultCategoryName": "Inne",
 
-  "ColumnDefinitions": {
+    "ColumnDefinitions": {
     "ValueDateColumn": { "ColumnName": "\"Data waluty\"" },
     "AmountColumn": { "ColumnName": "\"Kwota\"" },
     "TitleColumn": { "ColumnIndex": "9" },
     "SourceColumn": { "ColumnIndex": "7" }
-  },
+    },
 
-  "CategoryDictionary": {
-    "Alkohol": [
-      "duży ben",
-      "duzy ben",
-      "klub kultowy",
-      "kolejka pub",
-      "pub",
-      "amore del tropico",
-      "kontenerart"
-    ],
+    "CategoryDictionary": {
+        "Alkohol": [
+            "duży ben",
+            "duzy ben",
+            "klub kultowy",
+            "kolejka pub",
+            "pub",
+            "amore del tropico",
+            "kontenerart"
+        ],
 
-    "Allegro": [
-      "allegro.pl"
+        "Allegro": [
+            "allegro.pl"
 
-    ],
+        ],
 
-    "Datki": [
-      "malibracia",
-      "zrzutka"
-    ],
+        "Datki": [
+            "malibracia",
+            "zrzutka"
+        ],
 
-    "Dom": [
-      "ikea",
-      "leroy merlin",
-      "castorama"
-    ],
+        "Dom": [
+            "ikea",
+            "leroy merlin",
+            "castorama"
+        ],
 
-    "Gry": [
-      "steam",
-      "Valve",
-      "humblebundle",
-      "humblebundl",
-      "blizzardent",
-      "ea.com",
-      "www.g2a.com"
-    ],
+        "Gry": [
+            "steam",
+            "Valve",
+            "humblebundle",
+            "humblebundl",
+            "blizzardent",
+            "ea.com",
+            "www.g2a.com"
+        ],
 
-    "Hotele": [
-      "booking"
-    ],
+        "Hotele": [
+            "booking"
+        ],
 
-    "Jedzenie": [
-      "biedronka",
-      "zabka",
-      "pyszne.pl",
-      "lidl",
-      "kfc",
-      "sportinfo",
-      "pizzahut",
-      "amrest",
-      "skubacz.pl",
-      "slimak",
-      "carrefour",
-      "polomarket",
-      "starbucks",
-      "burgerownia",
-      "lewiatan",
-      "burger",
-      "mcdonalds",
-      "stokrotka",
-      "burgs chef",
-      "fawor",
-      "restaumatic",
-      "piccolo",
-      "kuchnia marche",
-      "zaczek",
-      "pasibus",
-      "glodny.pl",
-      "stary mlynek",
-      "kebab",
-      "pizza",
-      "pasztecik",
-      "kuchnie marche",
-      "stacja cafe",
-      "kawiarnia u przyjaciol",
-      "sklep spozywczy",
-      "piotr i pawel",
-      "cukiernia sowa",
-      "food & drinks",
-      "auchan",
-      "https://dagrasso.pl",
-      "BERLIN Doner Kebap",
-      "aldi"
-    ],
+        "Jedzenie": [
+            "biedronka",
+            "zabka",
+            "pyszne.pl",
+            "lidl",
+            "kfc",
+            "sportinfo",
+            "pizzahut",
+            "amrest",
+            "skubacz.pl",
+            "slimak",
+            "carrefour",
+            "polomarket",
+            "starbucks",
+            "burgerownia",
+            "lewiatan",
+            "burger",
+            "mcdonalds",
+            "stokrotka",
+            "burgs chef",
+            "fawor",
+            "restaumatic",
+            "piccolo",
+            "kuchnia marche",
+            "zaczek",
+            "pasibus",
+            "glodny.pl",
+            "stary mlynek",
+            "kebab",
+            "pizza",
+            "pasztecik",
+            "kuchnie marche",
+            "stacja cafe",
+            "kawiarnia u przyjaciol",
+            "sklep spozywczy",
+            "piotr i pawel",
+            "cukiernia sowa",
+            "food & drinks",
+            "auchan",
+            "https://dagrasso.pl",
+            "BERLIN Doner Kebap",
+            "aldi",
+            "PIEROZEK I KOMPOCIK"
+        ],
 
-    "Restauracje": [
-      "restauracja",
-      "barn s.c. Renata",
-      "scisk barbara knobloch",
-      "food matters"
-    ],
+        "Restauracje": [
+            "restauracja",
+            "barn s.c. Renata",
+            "scisk barbara knobloch",
+            "food matters"
+        ],
 
-    "Telefon": [
-      "virginmobile.pl",
-      "24.play.pl"
-    ],
+        "Telefon": [
+            "virginmobile.pl",
+            "24.play.pl"
+        ],
 
-    "Internet": [ "www.inea.pl" ],
-    "Paliwo": [
-      "shell",
-      "bp",
-      "orlen",
-      "circle k",
-      "lotos"
-    ],
+        "Internet": [ "www.inea.pl" ],
+        "Paliwo": [
+            "shell",
+            "bp",
+            "orlen",
+            "circle k",
+            "lotos"
+        ],
 
-    "Netflix": [
-      "netflix.com",
-      "netflix",
-      "netflix",
-      "net zrzutka"
-    ],
+        "Netflix": [
+            "netflix.com",
+            "netflix",
+            "netflix",
+            "net zrzutka"
+        ],
 
-    "Mieszkanie": [
-      "profit zarz�dzanie nieruchomo�ciami"
-    ],
+        "Mieszkanie": [
+            "profit zarz�dzanie nieruchomo�ciami"
+        ],
 
-    "Prąd": [
-      "za pr�d"
-    ],
+        "Prąd": [
+            "za pr�d"
+        ],
 
-    "Podarunki": [
-      "lilou",
-      "kwiaciarnia",
-      "el krepel"
-    ],
+        "Podarunki": [
+            "lilou",
+            "kwiaciarnia",
+            "el krepel",
+            "Apart"
+        ],
 
-    "Odzież": [
-      "new yorker",
-      "deichmann"
-    ],
+        "Odzież": [
+            "new yorker",
+            "deichmann"
+        ],
 
-    "Sport": [
-      "decathlon",
-      "wirtualnebiegi"
-    ],
+        "Sport": [
+            "decathlon",
+            "wirtualnebiegi"
+        ],
 
-    "Sprzęt": [
-      "x-kom.pl"
-    ],
+        "Sprzęt": [
+            "x-kom.pl"
+        ],
 
-    "Uber": [
-      "uber"
-    ],
+        "Uber": [
+            "uber"
+        ],
 
-    "Ubezpieczenie": [
-      "ergo hestia"
-    ],
+        "Samochód": [
+            "ergo hestia",
+            "PKO LEASING",
+            "RYSZARD T",
+            "SZPOT",
+            "PARKING"
+        ],
 
-    "Wynagrodzenie": [
-      "exant",
-      "halasdev"
-    ],
+        "URZĄD SKARBOWY": [
+            "URZĄD SKARBOWY"
+        ],
 
-    "Zdrowie": [
-      "rehasport",
-      "apteka"
-    ]
-  }
+        "Wynagrodzenie": [
+            "exant",
+            "halasdev"
+        ],
+
+        "Zdrowie": [
+            "rehasport",
+            "apteka"
+        ]
+    }
 }
