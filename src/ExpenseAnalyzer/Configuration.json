@@ -16,7 +16,11 @@
             "kolejka pub",
             "pub",
             "amore del tropico",
-            "kontenerart"
+            "kontenerart",
+            "Piwko naprzeciwko",
+            "muchos patatos",
+            "pod pregierzem",
+            "Locum"
         ],
 
         "Allegro": [
@@ -91,7 +95,29 @@
             "https://dagrasso.pl",
             "BERLIN Doner Kebap",
             "aldi",
-            "PIEROZEK I KOMPOCIK"
+            "PIEROZEK I KOMPOCIK",
+            "FOOD TRUCK",
+            "Subway",
+            "Shrimp house",
+            "mobilny punkt gastronomic",
+            "Aramis",
+            "lody z sercem",
+            "Konkurent",
+            "pierozkarnia",
+            "Miedzy wierszami",
+            "karmelek",
+            "bar",
+            "kura warzyw",
+            "Sklep Renia",
+            "Eurospar",
+            "Cukiernia luna",
+            "Nad potokiem"
+        ],
+
+        "Rozrywka": [
+            "ZAKRECONA BILA",
+            "STUDIO TANCA",
+
         ],
 
         "Restauracje": [
@@ -112,7 +138,8 @@
             "bp",
             "orlen",
             "circle k",
-            "lotos"
+            "lotos",
+            "Stacja paliw"
         ],
 
         "Netflix": [
@@ -139,12 +166,16 @@
 
         "Odzież": [
             "new yorker",
-            "deichmann"
+            "deichmann",
+            "kik",
+            "Carry",
+            "bytom"
         ],
 
         "Sport": [
             "decathlon",
-            "wirtualnebiegi"
+            "wirtualnebiegi",
+            "Fabryka Formy"
         ],
 
         "Sprzęt": [
@@ -160,7 +191,9 @@
             "PKO LEASING",
             "RYSZARD T",
             "SZPOT",
-            "PARKING"
+            "PARKING",
+            "Myjnia bezdotykowa",
+            "Haffnera 6"
         ],
 
         "URZĄD SKARBOWY": [

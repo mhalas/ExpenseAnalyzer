@@ -33,10 +33,16 @@ namespace Shared.Output
                 AddOutcome(package, data);
                 AddIncome(package, data);
 
-                var analyzedFilePath = Path.GetDirectoryName(Path.GetFullPath(_originFilePath));
-                analyzedFilePath = Path.Combine(analyzedFilePath, $"AnalyzedHistory-{DateTime.Now.ToString("yyyy-MM-dd-HH-mm-ss")}.xlsx");
+                var path = Path.GetDirectoryName(Path.GetFullPath(_originFilePath));
+                path = Path.Combine(path, "Output");
 
-                var file = new FileInfo(analyzedFilePath);
+                if (!Directory.Exists(path))
+                    Directory.CreateDirectory(path);
+
+                var fullFilePath = Path.Combine(path, $"AnalyzedHistory-{DateTime.Now.ToString("yyyy-MM-dd-HH-mm-ss")}.xlsx");
+
+                Logger.Debug($"Save analyzed file to {fullFilePath}.");
+                var file = new FileInfo(fullFilePath);
                 package.SaveAs(file);
             }
 
@@ -58,7 +64,7 @@ namespace Shared.Output
 
             var incomeSummary = data.GetSummaryIncome();
 
-            int rowNumber = 2;
+            var rowNumber = 2;
             foreach (var summary in incomeSummary.OrderBy(x => x.Month).ThenBy(x => x.Category))
             {
                 income.Cells[rowNumber, 1].Value = summary.Month;
@@ -84,7 +90,7 @@ namespace Shared.Output
 
             var outcomeSummary = data.GetSummaryOutcome();
 
-            int rowNumber = 2;
+            var rowNumber = 2;
             foreach (var summary in outcomeSummary.OrderBy(x => x.Month).ThenBy(x => x.Category))
             {
                 outcome.Cells[rowNumber, 1].Value = summary.Month;

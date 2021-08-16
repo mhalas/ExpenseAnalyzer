@@ -57,11 +57,16 @@ namespace Shared.Output
 
             var result = stringBuilder.ToString();
 
-            var analyzedFilePath = Path.GetDirectoryName(Path.GetFullPath(_originFilePath));
-            analyzedFilePath = Path.Combine(analyzedFilePath, $"AnalyzedHistory-{DateTime.Now.ToString("yyyy-MM-dd-HH-mm-ss")}.csv");
+            var path = Path.GetDirectoryName(Path.GetFullPath(_originFilePath));
+            path = Path.Combine(path, "Output");
 
-            Logger.Debug($"Save analyzed file to {analyzedFilePath}.");
-            File.WriteAllText(analyzedFilePath, result, Encoding.UTF8);
+            if (!Directory.Exists(path))
+                Directory.CreateDirectory(path);
+
+            var fullFilePath = Path.Combine(path, $"AnalyzedHistory-{DateTime.Now.ToString("yyyy-MM-dd-HH-mm-ss")}.csv");
+
+            Logger.Debug($"Save analyzed file to {fullFilePath}.");
+            File.WriteAllText(fullFilePath, result, Encoding.UTF8);
 
             return Task.CompletedTask;
         }
