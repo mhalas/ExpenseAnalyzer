@@ -1,4 +1,5 @@
 ﻿using Api.HandlerRequests;
+using DataAccess.Contracts.Model;
 using DataAccess.EntityFramework;
 using Handlers.Tests.Models;
 using Microsoft.EntityFrameworkCore;
@@ -35,10 +36,7 @@ namespace Handlers.Tests.Generals
         public async Task Handle_StateUnderTest_ExpectedBehavior()
         {
             // Arrange
-            CreateItemRequest request = new CreateItemRequest(new GeneralTestModel()
-            {
-                Id = 0,
-            });
+            CreateItemRequest request = new CreateItemRequest(new User());
             CancellationToken cancellationToken = default(global::System.Threading.CancellationToken);
 
             _dbContext

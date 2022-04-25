@@ -19,6 +19,7 @@ namespace Handlers
         public async Task<CreatedResponse> Handle(CreateItemRequest request, CancellationToken cancellationToken)
         {
             var result = await _dbContext.AddAsync((object)request.NewObject, cancellationToken);
+            await _dbContext.SaveChangesAsync();
 
             return new CreatedResponse(request.NewObject, true, "Success.");
         }
