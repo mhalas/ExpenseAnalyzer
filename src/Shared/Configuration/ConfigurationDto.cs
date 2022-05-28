@@ -5,7 +5,7 @@ namespace Shared.Configuration
     public class ConfigurationDto
     {
         public ConfigurationDto(string defaultCategoryName,
-            IDictionary<string, ConfigurationColumnDto> columnDefinitions,
+            IDictionary<string, List<ConfigurationColumnDto>> columnDefinitions,
             IDictionary<string, List<string>> categoryDictionary)
         {
             CategoryDictionary = categoryDictionary;
@@ -13,7 +13,7 @@ namespace Shared.Configuration
             ColumnDefinitions = columnDefinitions;
         }
         public string DefaultCategoryName { get; set; }
-        public IDictionary<string, ConfigurationColumnDto> ColumnDefinitions { get; }
+        public IDictionary<string, List<ConfigurationColumnDto>> ColumnDefinitions { get; }
         public IDictionary<string, List<string>> CategoryDictionary { get; }
     }
 }

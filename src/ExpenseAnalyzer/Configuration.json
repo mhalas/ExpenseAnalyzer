@@ -1,213 +1,282 @@
 {
-    "DefaultCategoryName": "Inne",
+  "DefaultCategoryName": "Inne",
 
-    "ColumnDefinitions": {
-    "ValueDateColumn": { "ColumnName": "\"Data waluty\"" },
-    "AmountColumn": { "ColumnName": "\"Kwota\"" },
-    "TitleColumn": { "ColumnIndex": "9" },
-    "SourceColumn": { "ColumnIndex": "7" }
-    },
+  "ColumnDefinitions": {
+    "ValueDateColumn": [ { "ColumnName": "\"Data waluty\"" } ],
+    "AmountColumn": [ { "ColumnName": "\"Kwota\"" } ],
+    "DescriptionColumns": [
+      { "ColumnIndex": "7" },
+      { "ColumnIndex": "8" },
+      { "ColumnIndex": "9" }
+    ]
+  },
 
-    "CategoryDictionary": {
-        "Alkohol": [
-            "duży ben",
-            "duzy ben",
-            "klub kultowy",
-            "kolejka pub",
-            "pub",
-            "amore del tropico",
-            "kontenerart",
-            "Piwko naprzeciwko",
-            "muchos patatos",
-            "pod pregierzem",
-            "Locum"
-        ],
+  "CategoryDictionary": {
+    "Alkohol": [
+      "duży ben",
+      "duzy ben",
+      "klub kultowy",
+      "kolejka pub",
+      "pub",
+      "amore del tropico",
+      "kontenerart",
+      "Piwko naprzeciwko",
+      "muchos patatos",
+      "pod pregierzem",
+      "Locum",
+      "KLUB TROPS"
+    ],
 
-        "Allegro": [
-            "allegro.pl"
+    "Allegro": [
+      "allegro.pl",
+      "aliexpress.com"
+    ],
 
-        ],
+    "J. angielski": [
+      "Nazwa odbiorcy: MIESZKO CIESIELSKI"
+    ],
 
-        "Datki": [
-            "malibracia",
-            "zrzutka"
-        ],
+    "Autostrada": [
+      "PPO Ladek West",
+      "A2 PPO STRYKOW",
+      "A2 PPO ZDZARY",
+      "PPO Nagradowice East",
+      "A2 SPO EMILIA",
+      "PPO Ladek East",
+      "PPO Nagradowice West"
+    ],
 
-        "Dom": [
-            "ikea",
-            "leroy merlin",
-            "castorama"
-        ],
+    "Datki": [
+      "malibracia",
+      "zrzutka",
+      "siepomaga",
+      "www.wosp.org.pl"
+    ],
 
-        "Gry": [
-            "steam",
-            "Valve",
-            "humblebundle",
-            "humblebundl",
-            "blizzardent",
-            "ea.com",
-            "www.g2a.com"
-        ],
+    "Dom": [
+      "ikea",
+      "leroy merlin",
+      "castorama"
+    ],
 
-        "Hotele": [
-            "booking"
-        ],
+    "Gry": [
+      "steam",
+      "Valve",
+      "humblebundle",
+      "humblebundl",
+      "blizzardent",
+      "ea.com",
+      "www.g2a.com",
+      "gog.com"
+    ],
 
-        "Jedzenie": [
-            "biedronka",
-            "zabka",
-            "pyszne.pl",
-            "lidl",
-            "kfc",
-            "sportinfo",
-            "pizzahut",
-            "amrest",
-            "skubacz.pl",
-            "slimak",
-            "carrefour",
-            "polomarket",
-            "starbucks",
-            "burgerownia",
-            "lewiatan",
-            "burger",
-            "mcdonalds",
-            "stokrotka",
-            "burgs chef",
-            "fawor",
-            "restaumatic",
-            "piccolo",
-            "kuchnia marche",
-            "zaczek",
-            "pasibus",
-            "glodny.pl",
-            "stary mlynek",
-            "kebab",
-            "pizza",
-            "pasztecik",
-            "kuchnie marche",
-            "stacja cafe",
-            "kawiarnia u przyjaciol",
-            "sklep spozywczy",
-            "piotr i pawel",
-            "cukiernia sowa",
-            "food & drinks",
-            "auchan",
-            "https://dagrasso.pl",
-            "BERLIN Doner Kebap",
-            "aldi",
-            "PIEROZEK I KOMPOCIK",
-            "FOOD TRUCK",
-            "Subway",
-            "Shrimp house",
-            "mobilny punkt gastronomic",
-            "Aramis",
-            "lody z sercem",
-            "Konkurent",
-            "pierozkarnia",
-            "Miedzy wierszami",
-            "karmelek",
-            "bar",
-            "kura warzyw",
-            "Sklep Renia",
-            "Eurospar",
-            "Cukiernia luna",
-            "Nad potokiem"
-        ],
+    "Hotele": [
+      "booking"
+    ],
 
-        "Rozrywka": [
-            "ZAKRECONA BILA",
-            "STUDIO TANCA",
+    "Jedzenie": [
+      "biedronka",
+      "zabka",
+      "pyszne.pl",
+      "lidl",
+      "kfc",
+      "sportinfo",
+      "pizzahut",
+      "amrest",
+      "skubacz.pl",
+      "slimak",
+      "carrefour",
+      "polomarket",
+      "starbucks",
+      "burgerownia",
+      "lewiatan",
+      "burger",
+      "mcdonalds",
+      "stokrotka",
+      "burgs chef",
+      "fawor",
+      "restaumatic",
+      "piccolo",
+      "kuchnia marche",
+      "zaczek",
+      "pasibus",
+      "glodny.pl",
+      "stary mlynek",
+      "kebab",
+      "pizza",
+      "pasztecik",
+      "kuchnie marche",
+      "stacja cafe",
+      "kawiarnia u przyjaciol",
+      "sklep spozywczy",
+      "piotr i pawel",
+      "cukiernia sowa",
+      "food & drinks",
+      "auchan",
+      "https://dagrasso.pl",
+      "BERLIN Doner Kebap",
+      "aldi",
+      "PIEROZEK I KOMPOCIK",
+      "FOOD TRUCK",
+      "Subway",
+      "Shrimp house",
+      "mobilny punkt gastronomic",
+      "Aramis",
+      "lody z sercem",
+      "Konkurent",
+      "pierozkarnia",
+      "Miedzy wierszami",
+      "karmelek",
+      "bar",
+      "kura warzyw",
+      "Sklep Renia",
+      "Eurospar",
+      "Cukiernia luna",
+      "Nad potokiem",
+      "ORZO",
+      "petit paris",
+      "sushi",
+      "PRACOWNIA CZEKOLADY",
+      "INDIA HOUSE",
+      "SZCZAW I MIRABELKI",
+      "costa",
+      "KLUB JAS AND MALGOSIA",
+      "GASTRO FAZA",
+      "Taco by Jesus",
+      "DARIA DYNARSKA", //Dzień dobry - Szczecin.
+      "ul. Krzywoustego 9/10" //NETTO - Szczecin
+    ],
 
-        ],
+    "Kurier": [
+      "inpost"
+    ],
 
-        "Restauracje": [
-            "restauracja",
-            "barn s.c. Renata",
-            "scisk barbara knobloch",
-            "food matters"
-        ],
+    "Rozrywka": [
+      "ZAKRECONA BILA",
+      "STUDIO TANCA",
+      "MULTIKINO",
+      "bilety.luminapark.pl",
+      "www.cinema-city.pl",
+      "CINEMA CITY",
+      "BLACK BALL",
+      "Szczecin Adres: COYOTE"
+    ],
 
-        "Telefon": [
-            "virginmobile.pl",
-            "24.play.pl"
-        ],
+    "Restauracje": [
+      "restauracja",
+      "barn s.c. Renata",
+      "scisk barbara knobloch",
+      "food matters"
+    ],
 
-        "Internet": [ "www.inea.pl" ],
-        "Paliwo": [
-            "shell",
-            "bp",
-            "orlen",
-            "circle k",
-            "lotos",
-            "Stacja paliw"
-        ],
+    "Telefon": [
+      "virginmobile.pl",
+      "24.play.pl"
+    ],
 
-        "Netflix": [
-            "netflix.com",
-            "netflix",
-            "netflix",
-            "net zrzutka"
-        ],
+    "Internet": [ "www.inea.pl" ],
+    "Paliwo": [
+      "shell",
+      "bp",
+      "orlen",
+      "circle k",
+      "lotos",
+      "Stacja paliw"
+    ],
 
-        "Mieszkanie": [
-            "profit zarz�dzanie nieruchomo�ciami"
-        ],
+    "Netflix": [
+      "netflix.com",
+      "netflix",
+      "netflix",
+      "net zrzutka"
+    ],
 
-        "Prąd": [
-            "za pr�d"
-        ],
+    "PAYPRO": [
+      "UL. KANCLERSKA 15"
+    ],
 
-        "Podarunki": [
-            "lilou",
-            "kwiaciarnia",
-            "el krepel",
-            "Apart"
-        ],
+    "Mieszkanie": [
+      "profit zarz�dzanie nieruchomo�ciami"
+    ],
 
-        "Odzież": [
-            "new yorker",
-            "deichmann",
-            "kik",
-            "Carry",
-            "bytom"
-        ],
+    "Prąd": [
+      "za pr�d"
+    ],
 
-        "Sport": [
-            "decathlon",
-            "wirtualnebiegi",
-            "Fabryka Formy"
-        ],
+    "Podarunki": [
+      "lilou",
+      "kwiaciarnia",
+      "el krepel",
+      "Apart",
+      "Salon Firmowy W.Kruk C.",
+      "GINTROWICZ FLOWERS MALT"
+    ],
 
-        "Sprzęt": [
-            "x-kom.pl"
-        ],
+    "Odzież": [
+      "new yorker",
+      "deichmann",
+      "kik",
+      "Carry",
+      "bytom",
+      "CCC",
+      "pepco"
+    ],
 
-        "Uber": [
-            "uber"
-        ],
+    "Sport": [
+      "decathlon",
+      "wirtualnebiegi",
+      "Fabryka Formy"
+    ],
 
-        "Samochód": [
-            "ergo hestia",
-            "PKO LEASING",
-            "RYSZARD T",
-            "SZPOT",
-            "PARKING",
-            "Myjnia bezdotykowa",
-            "Haffnera 6"
-        ],
+    "Sprzęt": [
+      "x-kom.pl",
+      "X-KOM"
+    ],
 
-        "URZĄD SKARBOWY": [
-            "URZĄD SKARBOWY"
-        ],
+    "Transport": [
+      "bilet.intercity.pl"
+    ],
 
-        "Wynagrodzenie": [
-            "exant",
-            "halasdev"
-        ],
+    "Uber": [
+      "uber"
+    ],
 
-        "Zdrowie": [
-            "rehasport",
-            "apteka"
-        ]
-    }
+    "Samochód": [
+      "ergo hestia",
+      "PKO LEASING",
+      "portal.pkoleasing.pl",
+      "RYSZARD T",
+      "SZPOT",
+      "PARKING",
+      "Myjnia bezdotykowa",
+      "Haffnera 6",
+      "www.ucando.pl",
+      "OPONEO.PL",
+      "Ubezpieczenie",
+      "Mazdy",
+      "Mazda",
+      "VOYAGER",
+      "ZARZ�D DR�G MIEJSKICH",
+      "CARWASH"
+    ],
+
+    "URZĄD SKARBOWY": [
+      "URZĄD SKARBOWY"
+    ],
+
+    "Wynagrodzenie": [
+      "exant",
+      "halasdev"
+    ],
+
+    "Zdrowie": [
+      "rehasport",
+      "apteka",
+      "PHYSIOART FIZJOTE"
+    ],
+
+    "Psycholog": [
+      "PRACOWNIA PSYCHOL78504"
+    ]
+  }
 }
