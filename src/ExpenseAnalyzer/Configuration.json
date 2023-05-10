@@ -4,8 +4,9 @@
   "ColumnDefinitions": {
     "ValueDateColumn": [ { "ColumnName": "\"Data waluty\"" } ],
     "AmountColumn": [ { "ColumnName": "\"Kwota\"" } ],
-    "DescriptionColumns": [
+    "DescriptionColumnsOrder": [
       { "ColumnIndex": "7" },
+      { "ColumnIndex": "6" },
       { "ColumnIndex": "8" },
       { "ColumnIndex": "9" }
     ]
@@ -33,7 +34,7 @@
     ],
 
     "J. angielski": [
-      "Nazwa odbiorcy: MIESZKO CIESIELSKI"
+      "MIESZKO CIESIELSKI"
     ],
 
     "Autostrada": [
@@ -56,7 +57,8 @@
     "Dom": [
       "ikea",
       "leroy merlin",
-      "castorama"
+      "castorama",
+      "jula"
     ],
 
     "Gry": [
@@ -71,7 +73,10 @@
     ],
 
     "Hotele": [
-      "booking"
+      "booking",
+      "hotel",
+      "reymont",
+      "airbnb"
     ],
 
     "Jedzenie": [
@@ -144,7 +149,29 @@
       "GASTRO FAZA",
       "Taco by Jesus",
       "DARIA DYNARSKA", //Dzień dobry - Szczecin.
-      "ul. Krzywoustego 9/10" //NETTO - Szczecin
+      "ul. Krzywoustego 9/10", //NETTO - Szczecin
+      "KEBAB",
+      "TOSKA CANTINE",
+      "CAFE",
+      "SUPERMARKET",
+      "dino",
+      "vemat",
+      "lodziarnie firmowe",
+      "slodki kacik",
+      "kocimietka",
+      "catering",
+      "coffee",
+      "karmello",
+      "sbx",
+      "chichi 4u",
+      "express oriental",
+      "gastrofaza",
+      "coo sp z oo c90",
+      "rozove",
+      "mjm marta wierzbinska",
+      "automaty uvp",
+      "fabryczka nalesni",
+      "sklep renia"
     ],
 
     "Kurier": [
@@ -159,14 +186,26 @@
       "www.cinema-city.pl",
       "CINEMA CITY",
       "BLACK BALL",
-      "Szczecin Adres: COYOTE"
+      "Szczecin Adres: COYOTE",
+      "havana",
+      "klub na fali",
+      "kontenery art",
+      "paintball",
+      "pomysl",
+      "DoSopotu Club & Lounge",
+      "za kulisami",
+      "twoje sniadanie"
     ],
 
     "Restauracje": [
       "restauracja",
       "barn s.c. Renata",
       "scisk barbara knobloch",
-      "food matters"
+      "food matters",
+      "mykonos",
+      "whiskey in the jar",
+      "estella",
+      "trzy kolory"
     ],
 
     "Telefon": [
@@ -174,7 +213,10 @@
       "24.play.pl"
     ],
 
-    "Internet": [ "www.inea.pl" ],
+    "Internet": [
+      "www.inea.pl",
+      "INEA"
+    ],
     "Paliwo": [
       "shell",
       "bp",
@@ -184,11 +226,13 @@
       "Stacja paliw"
     ],
 
-    "Netflix": [
+    "Telewizja": [
       "netflix.com",
       "netflix",
       "netflix",
-      "net zrzutka"
+      "net zrzutka",
+      "amazon prime",
+      "marta głucińska"
     ],
 
     "PAYPRO": [
@@ -196,11 +240,11 @@
     ],
 
     "Mieszkanie": [
-      "profit zarz�dzanie nieruchomo�ciami"
+      "zarządzanie nieruchomościami"
     ],
 
     "Prąd": [
-      "za pr�d"
+      "za prąd"
     ],
 
     "Podarunki": [
@@ -219,13 +263,18 @@
       "Carry",
       "bytom",
       "CCC",
-      "pepco"
+      "pepco",
+      "reserved"
     ],
 
     "Sport": [
       "decathlon",
       "wirtualnebiegi",
-      "Fabryka Formy"
+      "Fabryka Formy",
+      "termy",
+      "plywalnia",
+      "pływalnia",
+      "klub sport. czerwony smok"
     ],
 
     "Sprzęt": [
@@ -234,7 +283,8 @@
     ],
 
     "Transport": [
-      "bilet.intercity.pl"
+      "bilet.intercity.pl",
+      "www.biletyregionalne.pl"
     ],
 
     "Uber": [
@@ -256,12 +306,16 @@
       "Mazdy",
       "Mazda",
       "VOYAGER",
-      "ZARZ�D DR�G MIEJSKICH",
-      "CARWASH"
+      "ZARZĄD DRÓG MIEJSKICH",
+      "CARWASH",
+      "apcoa",
+      "myjnia samochodowa",
+      "promyk", //wulkanizator
+      "banieczka spolka akcyjna"
     ],
 
-    "URZĄD SKARBOWY": [
-      "URZĄD SKARBOWY"
+    "Urząd skarbowy": [
+      "Urząd skarbowy"
     ],
 
     "Wynagrodzenie": [
@@ -272,11 +326,23 @@
     "Zdrowie": [
       "rehasport",
       "apteka",
-      "PHYSIOART FIZJOTE"
+      "PHYSIOART FIZJOTE",
+      "lamignat",
+      "WLKP CEN MED",
+      "super - pharm",
+      "rossmann",
+      "diagnostyka",
+      "szpital św. wojciecha"
     ],
 
     "Psycholog": [
-      "PRACOWNIA PSYCHOL78504"
+      "PRACOWNIA PSYCHOL",
+      "AGATA KAŁUŻNA"
+    ],
+
+    "Oszczędzanie": [
+      "AUTOOSZCZĘDZANIE-PRZELEW",
+      "odsetki należne lokaty"
     ]
   }
 }

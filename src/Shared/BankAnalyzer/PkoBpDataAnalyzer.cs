@@ -30,9 +30,9 @@ namespace Shared.BankAnalyzer
                 Logger.Info("Required 'AmountColumn' in configuration property 'ColumnDefinitions'.");
                 return false;
             }
-            if (!_configuration.ColumnDefinitions.ContainsKey("DescriptionColumns"))
+            if (!_configuration.ColumnDefinitions.ContainsKey("DescriptionColumnsOrder"))
             {
-                Logger.Info("Required 'DescriptionColumns' in configuration property 'ColumnDefinitions'.");
+                Logger.Info("Required 'DescriptionColumnsOrder' in configuration property 'ColumnDefinitions'.");
                 return false;
             }
 
@@ -62,7 +62,7 @@ namespace Shared.BankAnalyzer
 
             var valueDateIndex = GetDefinitionsData("ValueDateColumn", headerRowColumns).First();
             var amountIndex = GetDefinitionsData("AmountColumn", headerRowColumns).First();
-            var descriptionColumns = GetDefinitionsData("DescriptionColumns", headerRowColumns);
+            var descriptionColumns = GetDefinitionsData("DescriptionColumnsOrder", headerRowColumns);
 
             rows.RemoveAt(0);
 
@@ -97,14 +97,23 @@ namespace Shared.BankAnalyzer
 
         private (string, string) GetCategory(string[] rowColumns, IEnumerable<int> descriptionColumns)
         {
+            string description = string.Empty;
+
             foreach (var column in descriptionColumns)
             {
                 var category = _configuration.CategoryDictionary.FirstOrDefault(x => x.Value.Any(y => rowColumns[column].ToLower().Contains(y.ToLower())));
                 if (category.Key != null)
+                {
                     return (rowColumns[column].Replace("\"", ""), category.Key.Replace("\"", ""));
+                }
+
+                if (!string.IsNullOrEmpty(rowColumns[column]) && string.IsNullOrEmpty(description))
+                {
+                    description = rowColumns[column].Replace("\"", "");
+                }
             }
 
-            return (rowColumns[descriptionColumns.First()].Replace("\"", ""), _configuration.DefaultCategoryName);
+            return (description, _configuration.DefaultCategoryName);
         }
     }
 }
