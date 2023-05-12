@@ -16,12 +16,11 @@ namespace ExpenseAnalyzer.Parameters
         {
             var parametersDictionary = parameters.ToDictionary(x => x.Split("=")[0], x => x.Split("=")[1]);
 
-            if (!parametersDictionary.ContainsKey(FileParameterName))
-                throw new ParameterException(FileParameterName);
-
             if(!parametersDictionary.ContainsKey(BankTypeParameterName)
                 || !Enum.IsDefined(typeof(BankType), (object)parametersDictionary[BankTypeParameterName]))
+            {
                 throw new ParameterException(BankTypeParameterName);
+            }
 
             var bankType = (BankType)Enum.Parse(typeof(BankType), parametersDictionary[BankTypeParameterName]);
 
@@ -32,6 +31,12 @@ namespace ExpenseAnalyzer.Parameters
                     outputType = (OutputType)Enum.Parse(typeof(OutputType), parametersDictionary[OutputFormatParameterName]);
                 else
                     throw new ParameterException(OutputFormatParameterName);
+            }
+
+
+            if (!parametersDictionary.ContainsKey(FileParameterName))
+            {
+                return new AppParameters(null, bankType, outputType);
             }
 
             var file = parametersDictionary[FileParameterName];
