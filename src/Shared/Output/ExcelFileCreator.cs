@@ -22,7 +22,7 @@ namespace Shared.Output
             _originFilePath = originFilePath;
         }
 
-        public Task OutputData(IEnumerable<ExpenseDataRow> data)
+        public void OutputData(IEnumerable<ExpenseDataRow> data)
         {
             Logger.Debug("Create Excel file.");
 
@@ -45,8 +45,6 @@ namespace Shared.Output
                 var file = new FileInfo(fullFilePath);
                 package.SaveAs(file);
             }
-
-            return Task.CompletedTask;
         }
 
         private void AddIncome(ExcelPackage package, IEnumerable<ExpenseDataRow> data)

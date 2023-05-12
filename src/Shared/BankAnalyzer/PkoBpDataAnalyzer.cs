@@ -35,7 +35,7 @@ namespace Shared.BankAnalyzer
                 Logger.Info("Required 'DescriptionColumnsOrder' in configuration property 'ColumnDefinitions'.");
                 return false;
             }
-
+            
             return true;
         }
 
@@ -76,12 +76,23 @@ namespace Shared.BankAnalyzer
 
                 var valueDate = DateTime.Parse(rowColumns[valueDateIndex].Replace("\"", ""));
                 var amount = decimal.Parse(rowColumns[amountIndex].Replace("\"", "").Replace(".", ","));
-                (string Description, string Category) categoryAndDescription = GetCategory(rowColumns, descriptionColumns);
+                (string Description, string Category) categoryAndDescription = GetCategory(rowColumns, descriptionColumns, amount);
 
+                amount = GetAbsoluteValueOfAmount(amount);
                 result.Add(new ExpenseDataRow(valueDate, amount, categoryAndDescription.Description, categoryAndDescription.Category));
             }
 
             return result;
+        }
+
+        private decimal GetAbsoluteValueOfAmount(decimal amount)
+        {
+            if (_configuration.UseAbsoluteValuesForAmount)
+            {
+                return decimal.Abs(amount);
+            }
+
+            return amount;
         }
 
         private IEnumerable<int> GetDefinitionsData(string definitionName, List<string> headerRowColumns)
@@ -95,7 +106,7 @@ namespace Shared.BankAnalyzer
             }
         }
 
-        private (string, string) GetCategory(string[] rowColumns, IEnumerable<int> descriptionColumns)
+        private (string, string) GetCategory(string[] rowColumns, IEnumerable<int> descriptionColumns, decimal amount)
         {
             string description = string.Empty;
 
@@ -113,7 +124,12 @@ namespace Shared.BankAnalyzer
                 }
             }
 
-            return (description, _configuration.DefaultCategoryName);
+            if(amount > 0)
+            {
+                return (description, _configuration.DefaultIncomeCategoryName);
+            }
+
+            return (description, _configuration.DefaultExpenseCategoryName);
         }
     }
 }

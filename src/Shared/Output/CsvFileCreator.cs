@@ -1,4 +1,5 @@
 ﻿using NLog;
+using Shared.Configuration;
 using Shared.Dto;
 using Shared.Extension;
 using System;
@@ -15,24 +16,53 @@ namespace Shared.Output
         private static ILogger Logger = LogManager.GetCurrentClassLogger();
 
         private readonly string _originFilePath;
+        private readonly ConfigurationDto _configuration;
 
-        public CsvFileCreator(string originFilePath)
+        public CsvFileCreator(string originFilePath,
+            ConfigurationDto configuration)
         {
             _originFilePath = originFilePath;
+            _configuration = configuration;
         }
 
-        public Task OutputData(IEnumerable<ExpenseDataRow> data)
+        public void OutputData(IEnumerable<ExpenseDataRow> data)
         {
             Logger.Debug("Create CSV file.");
 
             StringBuilder stringBuilder = new StringBuilder();
+            FillWithData(data, stringBuilder);
+
+            if (_configuration.GenerateSummary)
+            {
+                FillWithSummary(data, stringBuilder);
+            }
+
+            var result = stringBuilder.ToString();
+            GenerateOutputFile(result);
+        }
+
+        private void FillWithData(IEnumerable<ExpenseDataRow> data, StringBuilder stringBuilder)
+        {
             stringBuilder.AppendLine("\"Data waluty\",\"Kwota\",\"Opis\",\"Kategoria\"");
 
             foreach (var row in data)
             {
-                stringBuilder.AppendLine($"\"{row.ValueDate.ToString("yyyy-MM-dd")}\",\"{row.Amount}\",\"{row.Description}\",\"{row.Category}\"");
+                stringBuilder.AppendLine($"\"{row.ValueDate.ToString("yyyy-MM-dd")}\",\"{GetAmount(row)}\",\"{row.Description}\",\"{row.Category}\"");
+            }
+        }
+
+        private string GetAmount(ExpenseDataRow row)
+        {
+            if(row.Amount >= 0)
+            {
+                return @$"+{row.Amount}";
             }
 
+            return row.Amount.ToString();
+        }
+
+        private void FillWithSummary(IEnumerable<ExpenseDataRow> data, StringBuilder stringBuilder)
+        {
             stringBuilder.AppendLine();
             stringBuilder.AppendLine("Wydatki,,");
             stringBuilder.AppendLine("\"Miesiąc\",\"Kategoria\",\"Suma\"");
@@ -54,21 +84,17 @@ namespace Shared.Output
             {
                 stringBuilder.AppendLine($"\"{s.Month}\",\"{s.Category}\",\"{s.Amount}\"");
             }
+        }
 
-            var result = stringBuilder.ToString();
+        private void GenerateOutputFile(string result)
+        {
+            if (!Directory.Exists(_configuration.OutputPath))
+                Directory.CreateDirectory(_configuration.OutputPath);
 
-            var path = Path.GetDirectoryName(Path.GetFullPath(_originFilePath));
-            path = Path.Combine(path, "Output");
+            var fullFilePath = Path.Combine(_configuration.OutputPath, $"AnalyzedHistory-{DateTime.Now.ToString("yyyy-MM-dd-HH-mm-ss")}.csv");
 
-            if (!Directory.Exists(path))
-                Directory.CreateDirectory(path);
-
-            var fullFilePath = Path.Combine(path, $"AnalyzedHistory-{DateTime.Now.ToString("yyyy-MM-dd-HH-mm-ss")}.csv");
-
-            Logger.Debug($"Save analyzed file to {fullFilePath}.");
+            Logger.Info($"Save analyzed file to {fullFilePath}.");
             File.WriteAllText(fullFilePath, result, Encoding.UTF8);
-
-            return Task.CompletedTask;
         }
     }
 }

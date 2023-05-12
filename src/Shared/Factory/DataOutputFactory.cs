@@ -1,14 +1,17 @@
-﻿using Shared.Enum;
+﻿using Shared.Configuration;
+using Shared.Enum;
 using Shared.Output;
 
 namespace Shared.Factory
 {
     public class DataOutputFactory
     {
+        private readonly ConfigurationDto _configuration;
         private readonly string _originFilePath;
 
-        public DataOutputFactory(string originFilePath)
+        public DataOutputFactory(ConfigurationDto configuration, string originFilePath)
         {
+            _configuration = configuration;
             _originFilePath = originFilePath;
         }
 
@@ -20,7 +23,7 @@ namespace Shared.Factory
                     return new ExcelFileCreator(_originFilePath);
                 case OutputType.CSV:
                 default:
-                    return new CsvFileCreator(_originFilePath);
+                    return new CsvFileCreator(_originFilePath, _configuration);
 
 
             }

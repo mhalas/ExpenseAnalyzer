@@ -1,5 +1,12 @@
 {
-  "DefaultCategoryName": "Inne",
+  "UseAbsoluteValuesForAmount": false,
+  "GenerateSummary": false,
+
+  "DefaultIncomeCategoryName": "Przychód:Inne",
+  "DefaultExpenseCategoryName": "Wydatki:Inne",
+
+  "SourceFilesPath": "Z:\\Expenses",
+  "OutputPath": "Z:",
 
   "ColumnDefinitions": {
     "ValueDateColumn": [ { "ColumnName": "\"Data waluty\"" } ],
@@ -13,7 +20,7 @@
   },
 
   "CategoryDictionary": {
-    "Alkohol": [
+    "Wydatki:Alkohol": [
       "duży ben",
       "duzy ben",
       "klub kultowy",
@@ -25,19 +32,26 @@
       "muchos patatos",
       "pod pregierzem",
       "Locum",
-      "KLUB TROPS"
+      "KLUB TROPS",
+      "monopol",
+      "piwna stopa",
+      "alkoholove",
+      "cybermachina",
+      "lot chmielna",
+      "lot chmiela",
+      "pomysl"
     ],
 
-    "Allegro": [
+    "Wydatki:Allegro": [
       "allegro.pl",
       "aliexpress.com"
     ],
 
-    "J. angielski": [
+    "Wydatki:Język angielski": [
       "MIESZKO CIESIELSKI"
     ],
 
-    "Autostrada": [
+    "Wydatki:Autostrada": [
       "PPO Ladek West",
       "A2 PPO STRYKOW",
       "A2 PPO ZDZARY",
@@ -47,21 +61,23 @@
       "PPO Nagradowice West"
     ],
 
-    "Datki": [
+    "Wydatki:Datki charytatywne": [
       "malibracia",
-      "zrzutka",
+      "zrzutka.pl",
       "siepomaga",
       "www.wosp.org.pl"
     ],
 
-    "Dom": [
+    "Wydatki:Dom": [
       "ikea",
       "leroy merlin",
       "castorama",
-      "jula"
+      "jula",
+      "jysk",
+      "obi"
     ],
 
-    "Gry": [
+    "Wydatki:Gry": [
       "steam",
       "Valve",
       "humblebundle",
@@ -69,17 +85,25 @@
       "blizzardent",
       "ea.com",
       "www.g2a.com",
-      "gog.com"
+      "gog.com",
+      "g2a",
+      "blizzard",
+      "gog",
+      "cdkeys.com",
+      "keye.pl",
+      "tanisoft.pl",
+      "kinguin",
+      "origin.com"
     ],
 
-    "Hotele": [
+    "Wydatki:Hotele": [
       "booking",
       "hotel",
       "reymont",
       "airbnb"
     ],
 
-    "Jedzenie": [
+    "Wydatki:Jedzenie": [
       "biedronka",
       "zabka",
       "pyszne.pl",
@@ -171,14 +195,72 @@
       "mjm marta wierzbinska",
       "automaty uvp",
       "fabryczka nalesni",
-      "sklep renia"
+      "sklep renia",
+      "badzetera bagieteria",
+      "Kentucky Fried Chicken",
+      "Malpka",
+      "Bistro - ali baba 2",
+      "spaghetteria",
+      "maro market v",
+      "Berliner Doner Kebap",
+      "spolem",
+      "Tivoli",
+      "Fresh Mexican Grill",
+      "Pastwisko",
+      "Nalesnikarnia gramof",
+      "chata polska",
+      "express marche",
+      "pod strzecha",
+      "rogaty-rogalik-kawiarnia",
+      "zielony zakatek",
+      "freshmarket",
+      "delikatesy",
+      "tesco",
+      "grycan",
+      "zbyszek sklep",
+      "t.a.d",
+      "pizzeria mario",
+      "nefryt bis",
+      "makpol",
+      "real",
+      "sevi oriental",
+      "gastro",
+      "precelek",
+      "guty",
+      "francuski lacznik",
+      "kaufland",
+      "a a aldona kapczuk",
+      "pro-porcja",
+      "altana",
+      "bistro",
+      "czerwony kapturek",
+      "my fresh bistro",
+      "z wyzszej bulki",
+      "u karola",
+      "pomodoro",
+      "groszek",
+      "minimarket",
+      "Tomasz bagier",
+      "tchibo",
+      "mcdonadls",
+      "wytwornia pierogo",
+      "supersam",
+      "intermarche",
+      "north fish",
+      "Leszka 20",
+      "sklep renia",
+      "cukiernia natura",
+      "gosu",
+      "mount blanc",
+      "huel",
+      "sklep furore shop"
     ],
 
-    "Kurier": [
+    "Wydatki:Kurier": [
       "inpost"
     ],
 
-    "Rozrywka": [
+    "Wydatki:Rozrywka": [
       "ZAKRECONA BILA",
       "STUDIO TANCA",
       "MULTIKINO",
@@ -191,13 +273,23 @@
       "klub na fali",
       "kontenery art",
       "paintball",
-      "pomysl",
       "DoSopotu Club & Lounge",
       "za kulisami",
-      "twoje sniadanie"
+      "twoje sniadanie",
+      "9 stop",
+      "van gogh",
+      "kultowa",
+      "klub bilardowy",
+      "alternativa",
+      "klub u bazyla",
+      "pacha poznan",
+      "mk bowling",
+      "helios",
+      "gravitacja",
+      "gotinder"
     ],
 
-    "Restauracje": [
+    "Wydatki:Restauracje": [
       "restauracja",
       "barn s.c. Renata",
       "scisk barbara knobloch",
@@ -205,58 +297,83 @@
       "mykonos",
       "whiskey in the jar",
       "estella",
-      "trzy kolory"
+      "trzy kolory",
+      "restauracje",
+      "czerwony kapturek",
+      "kawiarnia",
+      "zielona weranda",
+      "restaurant",
+      "pastelowa",
+      "pijalnia czekolady",
+      "da grasso",
+      "meat us",
+      "ministerstwo browaru",
+      "zapiecek",
+      "czerwone krzeslo",
+      "mcdonald",
+      "amma r.kozak a.siwczynski",
+      "amma r. kozak",
     ],
 
-    "Telefon": [
+    "Wydatki:Telefon": [
       "virginmobile.pl",
-      "24.play.pl"
+      "24.play.pl",
+      "simplus",
+      "virginmobil"
     ],
 
-    "Internet": [
+    "Wydatki:Internet": [
       "www.inea.pl",
       "INEA"
     ],
-    "Paliwo": [
+    "Wydatki:Paliwo": [
       "shell",
       "bp",
       "orlen",
       "circle k",
       "lotos",
-      "Stacja paliw"
+      "Stacja paliw",
+      "stacja s1"
     ],
 
-    "Telewizja": [
+    "Wydatki:Telewizja": [
       "netflix.com",
       "netflix",
       "netflix",
+      "amazon prime"
+    ],
+
+    "Przychód:Zwroty:Telewizja": [
       "net zrzutka",
-      "amazon prime",
       "marta głucińska"
     ],
 
-    "PAYPRO": [
+    "Wydatki:Paypro": [
       "UL. KANCLERSKA 15"
     ],
 
-    "Mieszkanie": [
-      "zarządzanie nieruchomościami"
+    "Wydatki:Mieszkanie:Najem": [
+      "zarządzanie nieruchomościami",
+      "anna chlebowska"
     ],
 
-    "Prąd": [
+    "Wydatki:Mieszkanie:Prąd": [
       "za prąd"
     ],
 
-    "Podarunki": [
+    "Wydatki:Prezenty": [
       "lilou",
       "kwiaciarnia",
       "el krepel",
       "Apart",
       "Salon Firmowy W.Kruk C.",
-      "GINTROWICZ FLOWERS MALT"
+      "GINTROWICZ FLOWERS MALT",
+      "kwiatownia",
+      "briju",
+      "flowers"
     ],
 
-    "Odzież": [
+    "Wydatki:Odzież": [
       "new yorker",
       "deichmann",
       "kik",
@@ -264,34 +381,51 @@
       "bytom",
       "CCC",
       "pepco",
-      "reserved"
+      "reserved",
+      "h and m",
+      "big star",
+      "venezia",
+      "repablo",
+      "pull & bear",
+      "cropp",
+      "calzedonia",
+      "majster but"
     ],
 
-    "Sport": [
+    "Wydatki:Sport": [
       "decathlon",
       "wirtualnebiegi",
       "Fabryka Formy",
       "termy",
       "plywalnia",
       "pływalnia",
-      "klub sport. czerwony smok"
+      "klub sport. czerwony smok",
+      "go sport"
     ],
 
-    "Sprzęt": [
+    "Wydatki:Sprzęt": [
       "x-kom.pl",
-      "X-KOM"
+      "X-KOM",
+      "x - kom",
+      "x kom",
+      "sims recycling solutions",
+      "spec kable",
+      "media markt",
+      "euro rtv agd",
+      "mediaexpert",
+      "euro-net"
     ],
 
-    "Transport": [
+    "Wydatki:Transport": [
       "bilet.intercity.pl",
-      "www.biletyregionalne.pl"
+      "www.biletyregionalne.pl",
+      "uber",
+      "przewozy regionalne"
     ],
 
-    "Uber": [
-      "uber"
-    ],
-
-    "Samochód": [
+    "Wydatki:Samochód": [
+      "info-car.pl",
+      "osk pegaz",
       "ergo hestia",
       "PKO LEASING",
       "portal.pkoleasing.pl",
@@ -311,19 +445,36 @@
       "apcoa",
       "myjnia samochodowa",
       "promyk", //wulkanizator
-      "banieczka spolka akcyjna"
+      "banieczka spolka akcyjna",
+      "statoil",
+      "pzu",
+      "ufg",
+      "norauto",
+      "foltyn",
+      "autodna",
+      "mennica automat",
+      "mennica  automat"
     ],
 
-    "Urząd skarbowy": [
+    "Wydatki:Urząd skarbowy": [
       "Urząd skarbowy"
     ],
 
-    "Wynagrodzenie": [
+    "Przychód:Wynagrodzenie": [
       "exant",
-      "halasdev"
+      "halasdev",
+      "nazwa nadawcy: mc donalds polska",
+      "nazwa nadawcy: arp ideas",
+      "nazwa nadawcy: centermed poznań spółka",
+      "nazwa nadawcy: efitness"
     ],
 
-    "Zdrowie": [
+    "Wydatki:Firma": [
+      "halasdev",
+      "małgorzata jasicka"
+    ],
+
+    "Wydatki:Zdrowie": [
       "rehasport",
       "apteka",
       "PHYSIOART FIZJOTE",
@@ -332,17 +483,54 @@
       "super - pharm",
       "rossmann",
       "diagnostyka",
-      "szpital św. wojciecha"
+      "szpital św. wojciecha",
+      "vital-dent",
+      "certus",
+      "pracownia rtg",
+      "ola fizjo"
     ],
 
-    "Psycholog": [
+    "Wydatki:Psycholog": [
       "PRACOWNIA PSYCHOL",
       "AGATA KAŁUŻNA"
     ],
 
-    "Oszczędzanie": [
-      "AUTOOSZCZĘDZANIE-PRZELEW",
-      "odsetki należne lokaty"
+    "Wydatki:Oszczędzanie": [
+      "AUTOOSZCZĘDZANIE-PRZELEW"
+    ],
+
+    "Przychód:Oszczędzanie": [
+      "odsetki należne lokaty",
+      "kapitalizacja odsetek"
+    ],
+
+    "Wydatki:Uczelnia": [
+      "WSNHID ul. Gen Tadeusza Kutrzeby 10",
+      "Collegium davinci",
+      "wsnhid",
+      "politechnika poznańska"
+    ],
+
+    "Wydatki:Bank": [
+      "kod z karty kodów",
+      "opłata miesięczna za kartę",
+      "podatek od odsetek kapitałowych",
+      "za prowadzenie rachunku",
+      "opłata prop. za kartę",
+      "kapit.odsetek karnych",
+      "kwota cash back"
+    ],
+
+    "Wydatki:Zwiedzanie": [
+      "twierdza srebrna gora",
+      "zamek grodno",
+      "schronisko na szczelincu",
+    ],
+
+    "Przychód:Stypendium": [
+      "wyższa szkoła nauk humanistycznych i dziennikarstwa",
+      "A42512500",
+      "nazwa nadawcy: collegium da vinci"
     ]
   }
 }
