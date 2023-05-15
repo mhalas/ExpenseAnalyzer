@@ -5,6 +5,7 @@ using Shared.Output;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
+using System.Linq;
 
 namespace Shared.SourceData
 {
@@ -37,6 +38,10 @@ namespace Shared.SourceData
                     Logger.Info("Analyze complete.");
                 }
             }
+
+            expenseHistory = expenseHistory
+                .OrderBy(x => x.ValueDate)
+                .ToList();
 
             outputLogic.OutputData(expenseHistory);
             time.Stop();

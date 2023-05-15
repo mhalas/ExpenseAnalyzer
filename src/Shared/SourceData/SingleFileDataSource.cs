@@ -3,6 +3,7 @@ using Shared.BankAnalyzer;
 using Shared.Output;
 using System.Diagnostics;
 using System.IO;
+using System.Linq;
 
 namespace Shared.SourceData
 {
@@ -25,7 +26,10 @@ namespace Shared.SourceData
 
                 Logger.Info($@"Start analyzing file {_filePath}.");
                 time.Start();
-                var result = bankAnalyzer.AnalyzeExpenseHistory(reader.ReadToEnd());
+                var result = bankAnalyzer
+                    .AnalyzeExpenseHistory(reader.ReadToEnd())
+                    .OrderBy(x => x.ValueDate);
+
                 Logger.Info("Analyze complete.");
 
                 outputLogic.OutputData(result);

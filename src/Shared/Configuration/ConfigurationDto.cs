@@ -15,7 +15,9 @@ namespace Shared.Configuration
             bool generateSummary,
 
             IDictionary<string, List<ConfigurationColumnDto>> columnDefinitions,
-            IDictionary<string, List<string>> categoryDictionary)
+            IDictionary<string, List<string>> categoryDictionary,
+
+            List<string> ignoredTransactionDescriptions)
         {
             DefaultIncomeCategoryName = defaultIncomeCategoryName;
             DefaultExpenseCategoryName = defaultExpenseCategoryName;
@@ -28,6 +30,8 @@ namespace Shared.Configuration
 
             ColumnDefinitions = columnDefinitions;
             CategoryDictionary = categoryDictionary;
+
+            IgnoredTransactionDescriptions = ignoredTransactionDescriptions;
         }
         public string DefaultIncomeCategoryName { get; }
         public string DefaultExpenseCategoryName { get; }
@@ -40,5 +44,7 @@ namespace Shared.Configuration
 
         public IDictionary<string, List<ConfigurationColumnDto>> ColumnDefinitions { get; }
         public IDictionary<string, List<string>> CategoryDictionary { get; }
+
+        public List<string> IgnoredTransactionDescriptions { get; }
     }
 }

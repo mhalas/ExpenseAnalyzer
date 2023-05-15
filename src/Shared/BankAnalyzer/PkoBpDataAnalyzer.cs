@@ -70,9 +70,16 @@ namespace Shared.BankAnalyzer
             foreach (var row in rows)
             {
                 if (string.IsNullOrEmpty(row))
+                {
                     continue;
+                }
 
                 var rowColumns = row.Split(new string[] { "\",\"" }, StringSplitOptions.None);
+
+                if (IsTransactionIgnored(rowColumns, descriptionColumns))
+                {
+                    continue;
+                }
 
                 var valueDate = DateTime.Parse(rowColumns[valueDateIndex].Replace("\"", ""));
                 var amount = decimal.Parse(rowColumns[amountIndex].Replace("\"", "").Replace(".", ","));
@@ -94,6 +101,19 @@ namespace Shared.BankAnalyzer
 
             return amount;
         }
+
+        private bool IsTransactionIgnored(string[] rowColumns, IEnumerable<int> descriptionColumns)
+        {
+            foreach (var column in descriptionColumns)
+            {
+                if(_configuration.IgnoredTransactionDescriptions.Any(x => rowColumns[column].ToLower().Contains(x.ToLower())))
+                {
+                    return true;
+                }
+            }
+
+            return false;
+        } 
 
         private IEnumerable<int> GetDefinitionsData(string definitionName, List<string> headerRowColumns)
         {

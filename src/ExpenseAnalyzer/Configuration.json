@@ -532,5 +532,11 @@
       "A42512500",
       "nazwa nadawcy: collegium da vinci"
     ]
-  }
+  },
+
+  "IgnoredTransactionDescriptions": [
+    "Tytuł: OTWARCIE LOKATY",
+    "Tytuł: ZERWANIE LOKATY",
+    "Tytuł: WYGAŚNIĘCIE LOKATY"
+  ]
 }
