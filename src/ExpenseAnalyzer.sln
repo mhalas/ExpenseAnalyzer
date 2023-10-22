@@ -7,7 +7,12 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Shared", "Shared\Shared.csp
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ExpenseAnalyzer", "ExpenseAnalyzer\ExpenseAnalyzer.csproj", "{A6E06EE8-79F9-4B19-AEB8-E5FE554BEDFB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tests", "Tests\Tests.csproj", "{DD498E21-9E10-4539-B374-00B90EF92CA9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tests", "Tests\Tests.csproj", "{DD498E21-9E10-4539-B374-00B90EF92CA9}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Files", "Files", "{FF9F5833-D235-45C7-B7C3-96A4EF25D033}"
+	ProjectSection(SolutionItems) = preProject
+		Files\Configuration.json = Files\Configuration.json
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

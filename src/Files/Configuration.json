@@ -1,0 +1,29 @@
+{
+  "UseAbsoluteValuesForAmount": false,
+  "GenerateSummary": false,
+  "SplitIntoChunks": 5000,
+
+  "DefaultIncomeCategoryName": "Other",
+  "DefaultExpenseCategoryName": "Other",
+
+  "SourceFilesPath": "C:\\Expenses",
+  "OutputPath": "C:\\Expenses",
+
+  "CategoryDictionary": {
+    "Meal": [
+      "kfc",
+      "mcdonald",
+      "burger king"
+    ],
+
+    "House": [
+      "ikea"
+    ],
+
+    "Entertainment": [
+      "Bowling",
+      "Bilard",
+      "beer"
+    ]
+  }
+}
