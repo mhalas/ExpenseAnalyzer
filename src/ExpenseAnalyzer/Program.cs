@@ -60,7 +60,7 @@ namespace ExpenseAnalyzer
                     Logger.Info("Analyzing not started.");
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 var oldForegroundColor = Console.ForegroundColor;
                 Console.ForegroundColor = ConsoleColor.DarkRed;

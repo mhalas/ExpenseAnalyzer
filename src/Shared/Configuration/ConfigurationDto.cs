@@ -10,41 +10,34 @@ namespace Shared.Configuration
 
             string sourceFilesPath,
             string outputPath,
+            int? splitIntoChunks,
 
             bool useAbsoluteValuesForAmount,
             bool generateSummary,
 
-            IDictionary<string, List<ConfigurationColumnDto>> columnDefinitions,
-            IDictionary<string, List<string>> categoryDictionary,
-
-            List<string> ignoredTransactionDescriptions)
+            IDictionary<string, List<string>> categoryDictionary)
         {
             DefaultIncomeCategoryName = defaultIncomeCategoryName;
             DefaultExpenseCategoryName = defaultExpenseCategoryName;
 
             SourceFilesPath = sourceFilesPath;
             OutputPath = outputPath;
-
+            SplitIntoChunks = splitIntoChunks;
             UseAbsoluteValuesForAmount = useAbsoluteValuesForAmount;
             GenerateSummary = generateSummary;
 
-            ColumnDefinitions = columnDefinitions;
             CategoryDictionary = categoryDictionary;
-
-            IgnoredTransactionDescriptions = ignoredTransactionDescriptions;
         }
         public string DefaultIncomeCategoryName { get; }
         public string DefaultExpenseCategoryName { get; }
 
         public string SourceFilesPath { get; }
         public string OutputPath { get; }
+        public int? SplitIntoChunks { get; }
 
         public bool UseAbsoluteValuesForAmount { get; }
         public bool GenerateSummary { get; }
 
-        public IDictionary<string, List<ConfigurationColumnDto>> ColumnDefinitions { get; }
         public IDictionary<string, List<string>> CategoryDictionary { get; }
-
-        public List<string> IgnoredTransactionDescriptions { get; }
     }
 }

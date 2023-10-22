@@ -7,7 +7,6 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace Shared.Output
 {
@@ -15,17 +14,29 @@ namespace Shared.Output
     {
         private static ILogger Logger = LogManager.GetCurrentClassLogger();
 
-        private readonly string _originFilePath;
         private readonly ConfigurationDto _configuration;
 
-        public CsvFileCreator(string originFilePath,
-            ConfigurationDto configuration)
+        public CsvFileCreator(ConfigurationDto configuration)
         {
-            _originFilePath = originFilePath;
             _configuration = configuration;
         }
 
         public void OutputData(IEnumerable<ExpenseDataRow> data)
+        {
+            if (!_configuration.SplitIntoChunks.HasValue)
+            {
+                CreateSingleFile(data);
+            }
+
+            int part = 1;
+            foreach (var chunkedList in data.Chunk(_configuration.SplitIntoChunks.Value))
+            {
+                CreateSingleFile(chunkedList, $@"_Part{part}");
+                part++;
+            }
+        }
+
+        private void CreateSingleFile(IEnumerable<ExpenseDataRow> data, string fileNamePostfix = null)
         {
             Logger.Debug("Create CSV file.");
 
@@ -38,22 +49,37 @@ namespace Shared.Output
             }
 
             var result = stringBuilder.ToString();
-            GenerateOutputFile(result);
+            CreateOutputFile(result, fileNamePostfix);
         }
 
         private void FillWithData(IEnumerable<ExpenseDataRow> data, StringBuilder stringBuilder)
         {
-            stringBuilder.AppendLine("\"Data waluty\",\"Kwota\",\"Opis\",\"Kategoria\"");
+            stringBuilder.AppendLine("\"Data waluty\"," +
+                "\"Kwota\"," +
+                "\"Konto bankowe\"," +
+                "\"Nazwa\"," +
+                "\"Opis\"," +
+                "\"Kategoria\"");
 
             foreach (var row in data)
             {
-                stringBuilder.AppendLine($"\"{row.ValueDate.ToString("yyyy-MM-dd")}\",\"{GetAmount(row)}\",\"{row.Description}\",\"{row.Category}\"");
+                stringBuilder.AppendLine($"\"{row.ValueDate.ToString("yyyy-MM-dd")}\"," +
+                    $"\"{GetAmount(row)}\"," +
+                    GetCell(row.TargetAccount) +
+                    GetCell(row.TargetName) +
+                    GetCell(row.Description) +
+                    $"\"{row.Category}\"");
+            }
+
+            string GetCell(string data)
+            {
+                return string.IsNullOrEmpty(data) ? "\"\"," : $"\"{data}\",";
             }
         }
 
         private string GetAmount(ExpenseDataRow row)
         {
-            if(row.Amount >= 0)
+            if (row.Amount >= 0)
             {
                 return @$"+{row.Amount}";
             }
@@ -86,12 +112,12 @@ namespace Shared.Output
             }
         }
 
-        private void GenerateOutputFile(string result)
+        private void CreateOutputFile(string result, string fileNamePostfix)
         {
             if (!Directory.Exists(_configuration.OutputPath))
                 Directory.CreateDirectory(_configuration.OutputPath);
 
-            var fullFilePath = Path.Combine(_configuration.OutputPath, $"AnalyzedHistory-{DateTime.Now.ToString("yyyy-MM-dd-HH-mm-ss")}.csv");
+            var fullFilePath = Path.Combine(_configuration.OutputPath, $"AnalyzedHistory-{DateTime.Now.ToString("yyyy-MM-dd-HH-mm-ss")}{fileNamePostfix}.csv");
 
             Logger.Info($"Save analyzed file to {fullFilePath}.");
             File.WriteAllText(fullFilePath, result, Encoding.UTF8);

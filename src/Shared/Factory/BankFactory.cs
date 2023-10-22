@@ -1,6 +1,7 @@
 ﻿using Shared.BankAnalyzer;
 using Shared.Configuration;
 using Shared.Enum;
+using Shared.TransactionTypes.PKOBP;
 
 namespace Shared.Factory
 {
@@ -19,7 +20,7 @@ namespace Shared.Factory
             {
                 case BankType.PkoBP:
                 default:
-                    return new PkoBpDataAnalyzer(_configuration);
+                    return new PkoBpDataAnalyzer(_configuration, new PKOBPTransactionTypeFactory());
             }
 
         }

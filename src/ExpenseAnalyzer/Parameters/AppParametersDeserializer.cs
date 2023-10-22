@@ -16,7 +16,7 @@ namespace ExpenseAnalyzer.Parameters
         {
             var parametersDictionary = parameters.ToDictionary(x => x.Split("=")[0], x => x.Split("=")[1]);
 
-            if(!parametersDictionary.ContainsKey(BankTypeParameterName)
+            if (!parametersDictionary.ContainsKey(BankTypeParameterName)
                 || !Enum.IsDefined(typeof(BankType), (object)parametersDictionary[BankTypeParameterName]))
             {
                 throw new ParameterException(BankTypeParameterName);
@@ -27,7 +27,7 @@ namespace ExpenseAnalyzer.Parameters
             OutputType outputType = OutputType.CSV;
             if (parametersDictionary.ContainsKey(OutputFormatParameterName))
             {
-                if(Enum.IsDefined(typeof(OutputType), (object)parametersDictionary[OutputFormatParameterName]))
+                if (Enum.IsDefined(typeof(OutputType), (object)parametersDictionary[OutputFormatParameterName]))
                     outputType = (OutputType)Enum.Parse(typeof(OutputType), parametersDictionary[OutputFormatParameterName]);
                 else
                     throw new ParameterException(OutputFormatParameterName);

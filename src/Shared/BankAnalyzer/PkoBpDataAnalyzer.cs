@@ -1,41 +1,33 @@
 ﻿using NLog;
+using OfficeOpenXml.FormulaParsing.Excel.Functions.Database;
 using Shared.Configuration;
 using Shared.Dto;
+using Shared.TransactionTypes;
+using Shared.TransactionTypes.PKOBP;
 using System;
 using System.Collections.Generic;
+using System.Data.Common;
 using System.Linq;
 
 namespace Shared.BankAnalyzer
 {
-    public class PkoBpDataAnalyzer: IBankAnalyzer
+    public class PkoBpDataAnalyzer : IBankAnalyzer
     {
         private static ILogger Logger = LogManager.GetCurrentClassLogger();
 
-        private readonly ConfigurationDto _configuration;
+        private const int TransactionTypeIndex = 2;
 
-        public PkoBpDataAnalyzer(ConfigurationDto configuration)
+        private readonly ConfigurationDto _configuration;
+        private readonly PKOBPTransactionTypeFactory _factory;
+
+        public PkoBpDataAnalyzer(ConfigurationDto configuration, PKOBPTransactionTypeFactory factory)
         {
             _configuration = configuration;
+            _factory = factory;
         }
 
         public bool CanExecute()
         {
-            if (!_configuration.ColumnDefinitions.ContainsKey("ValueDateColumn"))
-            {
-                Logger.Info("Required 'ValueDateColumn' in configuration property 'ColumnDefinitions'.");
-                return false;
-            }
-            if (!_configuration.ColumnDefinitions.ContainsKey("AmountColumn"))
-            {
-                Logger.Info("Required 'AmountColumn' in configuration property 'ColumnDefinitions'.");
-                return false;
-            }
-            if (!_configuration.ColumnDefinitions.ContainsKey("DescriptionColumnsOrder"))
-            {
-                Logger.Info("Required 'DescriptionColumnsOrder' in configuration property 'ColumnDefinitions'.");
-                return false;
-            }
-            
             return true;
         }
 
@@ -44,50 +36,71 @@ namespace Shared.BankAnalyzer
             Logger.Debug("Analyzing PkoBP history.");
 
             var rows = AnalyzeHistoryData(historyData);
-
-            rows = RemoveInvestmentData(rows);
-
             return rows;
-        }
-
-        private IEnumerable<ExpenseDataRow> RemoveInvestmentData(IEnumerable<ExpenseDataRow> rows)
-        {
-            return rows.Where(x => !x.Description.Contains("000%"));
         }
 
         private IEnumerable<ExpenseDataRow> AnalyzeHistoryData(string historyData)
         {
             var rows = historyData.Split('\n').ToList();
-            var headerRowColumns = rows.First().Split(',').ToList();
-
-            var valueDateIndex = GetDefinitionsData("ValueDateColumn", headerRowColumns).First();
-            var amountIndex = GetDefinitionsData("AmountColumn", headerRowColumns).First();
-            var descriptionColumns = GetDefinitionsData("DescriptionColumnsOrder", headerRowColumns);
-
             rows.RemoveAt(0);
 
+            List<string> succeedRows = new List<string>();
+            List<string> failedRows = new List<string>();
+            List<string> ignoredRows = new List<string>();
+            
+
             var result = new List<ExpenseDataRow>();
-            foreach (var row in rows)
+            for (int i = 0; i < rows.Count; i++)
             {
+                var row = rows[i].Replace("\"\r", "");
+                Logger.Debug($@"{i + 1}: {row}");
+
                 if (string.IsNullOrEmpty(row))
                 {
                     continue;
                 }
 
-                var rowColumns = row.Split(new string[] { "\",\"" }, StringSplitOptions.None);
-
-                if (IsTransactionIgnored(rowColumns, descriptionColumns))
+                try
                 {
-                    continue;
+                    var rowColumns = row
+                        .Split(new string[] { "\",\"" }, StringSplitOptions.None)
+                        .Select(x => x.Replace("\"", ""))
+                        .ToArray();
+
+                    var transactionType = _factory.GetTransactionType(rowColumns[TransactionTypeIndex]);
+                    var transactionRow = transactionType.GetTransactionRow(rowColumns);
+
+                    if (transactionRow == null)
+                    {
+                        ignoredRows.Add(row);
+                        continue;
+                    }
+
+                    var category = GetCategory(transactionRow);
+
+                    var amount = GetAbsoluteValueOfAmount(transactionRow.Amount);
+                    result.Add(new ExpenseDataRow
+                    {
+                        Amount = amount,
+                        Category = category,
+                        TargetName = transactionRow.TargetName,
+                        TargetAccount = transactionRow.TargetAccount,
+                        Description = transactionRow.Description,
+                        ValueDate = transactionRow.TransactionDate
+                    });
+
+                    succeedRows.Add(row);
                 }
-
-                var valueDate = DateTime.Parse(rowColumns[valueDateIndex].Replace("\"", ""));
-                var amount = decimal.Parse(rowColumns[amountIndex].Replace("\"", "").Replace(".", ","));
-                (string Description, string Category) categoryAndDescription = GetCategory(rowColumns, descriptionColumns, amount);
-
-                amount = GetAbsoluteValueOfAmount(amount);
-                result.Add(new ExpenseDataRow(valueDate, amount, categoryAndDescription.Description, categoryAndDescription.Category));
+                catch(Exception ex)
+                {
+                    Logger.Error(ex, $"Error occured for row {i + 1}\r\n{row}.");
+                    failedRows.Add(row);
+                }
             }
+
+            Logger.Info($@"Succeed rows: '{succeedRows.Count}'.");
+            Logger.Warn($@"Ignored rows: '{ignoredRows.Count}'.");
+            Logger.Error($@"Failed rows: '{failedRows.Count}'.");
 
             return result;
         }
@@ -102,54 +115,26 @@ namespace Shared.BankAnalyzer
             return amount;
         }
 
-        private bool IsTransactionIgnored(string[] rowColumns, IEnumerable<int> descriptionColumns)
+        private string GetCategory(TransactionRow row)
         {
-            foreach (var column in descriptionColumns)
+            var category = _configuration
+                .CategoryDictionary
+                .FirstOrDefault(x => x.Value.Any(y => 
+                    row.Description.ToLower().Contains(y.ToLower()) ||
+                    row.TargetAccount.ToLower().Contains(y.ToLower()) ||
+                    row.TargetName.ToLower().Contains(y.ToLower())));
+
+            if (category.Key != null)
             {
-                if(_configuration.IgnoredTransactionDescriptions.Any(x => rowColumns[column].ToLower().Contains(x.ToLower())))
-                {
-                    return true;
-                }
+                return category.Key.Replace("\"", "");
             }
 
-            return false;
-        } 
-
-        private IEnumerable<int> GetDefinitionsData(string definitionName, List<string> headerRowColumns)
-        {
-            var definitions = _configuration.ColumnDefinitions[definitionName];
-            foreach (var def in definitions)
+            if (row.Amount > 0)
             {
-                yield return def.ColumnIndex.HasValue ?
-                    def.ColumnIndex.Value - 1
-                    : headerRowColumns.IndexOf(def.ColumnName);
-            }
-        }
-
-        private (string, string) GetCategory(string[] rowColumns, IEnumerable<int> descriptionColumns, decimal amount)
-        {
-            string description = string.Empty;
-
-            foreach (var column in descriptionColumns)
-            {
-                var category = _configuration.CategoryDictionary.FirstOrDefault(x => x.Value.Any(y => rowColumns[column].ToLower().Contains(y.ToLower())));
-                if (category.Key != null)
-                {
-                    return (rowColumns[column].Replace("\"", ""), category.Key.Replace("\"", ""));
-                }
-
-                if (!string.IsNullOrEmpty(rowColumns[column]) && string.IsNullOrEmpty(description))
-                {
-                    description = rowColumns[column].Replace("\"", "");
-                }
+                return _configuration.DefaultIncomeCategoryName;
             }
 
-            if(amount > 0)
-            {
-                return (description, _configuration.DefaultIncomeCategoryName);
-            }
-
-            return (description, _configuration.DefaultExpenseCategoryName);
+            return _configuration.DefaultExpenseCategoryName;
         }
     }
 }

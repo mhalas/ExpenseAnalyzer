@@ -23,7 +23,7 @@ namespace Shared.Factory
                     return new ExcelFileCreator(_originFilePath);
                 case OutputType.CSV:
                 default:
-                    return new CsvFileCreator(_originFilePath, _configuration);
+                    return new CsvFileCreator(_configuration);
 
 
             }

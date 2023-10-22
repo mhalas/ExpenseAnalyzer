@@ -1,26 +1,16 @@
 {
   "UseAbsoluteValuesForAmount": false,
   "GenerateSummary": false,
+  "SplitIntoChunks": 5000,
 
-  "DefaultIncomeCategoryName": "Przychód:Inne",
-  "DefaultExpenseCategoryName": "Wydatki:Inne",
+  "DefaultIncomeCategoryName": "Inne",
+  "DefaultExpenseCategoryName": "Inne",
 
   "SourceFilesPath": "Z:\\Expenses",
-  "OutputPath": "Z:",
-
-  "ColumnDefinitions": {
-    "ValueDateColumn": [ { "ColumnName": "\"Data waluty\"" } ],
-    "AmountColumn": [ { "ColumnName": "\"Kwota\"" } ],
-    "DescriptionColumnsOrder": [
-      { "ColumnIndex": "7" },
-      { "ColumnIndex": "6" },
-      { "ColumnIndex": "8" },
-      { "ColumnIndex": "9" }
-    ]
-  },
+  "OutputPath": "Z:\\Expenses",
 
   "CategoryDictionary": {
-    "Wydatki:Alkohol": [
+    "Alkohol": [
       "duży ben",
       "duzy ben",
       "klub kultowy",
@@ -39,19 +29,22 @@
       "cybermachina",
       "lot chmielna",
       "lot chmiela",
-      "pomysl"
+      "pomysl",
+      "jabeerwocky",
+      "ozazu",
+      "rafamarina"
     ],
 
-    "Wydatki:Allegro": [
+    "Allegro": [
       "allegro.pl",
       "aliexpress.com"
     ],
 
-    "Wydatki:Język angielski": [
+    "Język angielski": [
       "MIESZKO CIESIELSKI"
     ],
 
-    "Wydatki:Autostrada": [
+    "Autostrada": [
       "PPO Ladek West",
       "A2 PPO STRYKOW",
       "A2 PPO ZDZARY",
@@ -61,14 +54,14 @@
       "PPO Nagradowice West"
     ],
 
-    "Wydatki:Datki charytatywne": [
+    "Datki charytatywne": [
       "malibracia",
       "zrzutka.pl",
       "siepomaga",
       "www.wosp.org.pl"
     ],
 
-    "Wydatki:Dom": [
+    "Dom": [
       "ikea",
       "leroy merlin",
       "castorama",
@@ -77,7 +70,7 @@
       "obi"
     ],
 
-    "Wydatki:Gry": [
+    "Gry": [
       "steam",
       "Valve",
       "humblebundle",
@@ -96,14 +89,14 @@
       "origin.com"
     ],
 
-    "Wydatki:Hotele": [
+    "Hotele": [
       "booking",
       "hotel",
       "reymont",
       "airbnb"
     ],
 
-    "Wydatki:Jedzenie": [
+    "Jedzenie": [
       "biedronka",
       "zabka",
       "pyszne.pl",
@@ -253,14 +246,22 @@
       "gosu",
       "mount blanc",
       "huel",
-      "sklep furore shop"
+      "sklep furore shop",
+      "doppiek",
+      "biegun",
+      "kebap",
+      "pod aniołem",
+      "na teatralce",
+      "starowka",
+      "wypas",
+      "crazy pig"
     ],
 
-    "Wydatki:Kurier": [
+    "Kurier": [
       "inpost"
     ],
 
-    "Wydatki:Rozrywka": [
+    "Rozrywka": [
       "ZAKRECONA BILA",
       "STUDIO TANCA",
       "MULTIKINO",
@@ -286,10 +287,12 @@
       "mk bowling",
       "helios",
       "gravitacja",
-      "gotinder"
+      "gotinder",
+      "Microsoft*store",
+      "wrky agata stanko"
     ],
 
-    "Wydatki:Restauracje": [
+    "Restauracje": [
       "restauracja",
       "barn s.c. Renata",
       "scisk barbara knobloch",
@@ -312,21 +315,23 @@
       "czerwone krzeslo",
       "mcdonald",
       "amma r.kozak a.siwczynski",
-      "amma r. kozak",
+      "amma r. kozak"
     ],
 
-    "Wydatki:Telefon": [
+    "Telefon": [
       "virginmobile.pl",
       "24.play.pl",
       "simplus",
-      "virginmobil"
+      "virginmobil",
+      "virgin"
     ],
 
-    "Wydatki:Internet": [
+    "Internet": [
       "www.inea.pl",
       "INEA"
     ],
-    "Wydatki:Paliwo": [
+
+    "Paliwo": [
       "shell",
       "bp",
       "orlen",
@@ -336,32 +341,32 @@
       "stacja s1"
     ],
 
-    "Wydatki:Telewizja": [
+    "Telewizja": [
       "netflix.com",
       "netflix",
       "netflix",
-      "amazon prime"
-    ],
-
-    "Przychód:Zwroty:Telewizja": [
+      "amazon prime",
       "net zrzutka",
-      "marta głucińska"
+      "marta głucińska",
+      "skyshowtime"
     ],
 
-    "Wydatki:Paypro": [
+    "Paypro": [
       "UL. KANCLERSKA 15"
     ],
 
-    "Wydatki:Mieszkanie:Najem": [
+    "Najem": [
       "zarządzanie nieruchomościami",
-      "anna chlebowska"
+      "anna chlebowska",
+      "MIESZKANKO",
+      "profit"
     ],
 
-    "Wydatki:Mieszkanie:Prąd": [
+    "Prąd": [
       "za prąd"
     ],
 
-    "Wydatki:Prezenty": [
+    "Prezenty": [
       "lilou",
       "kwiaciarnia",
       "el krepel",
@@ -373,7 +378,7 @@
       "flowers"
     ],
 
-    "Wydatki:Odzież": [
+    "Odzież": [
       "new yorker",
       "deichmann",
       "kik",
@@ -392,7 +397,7 @@
       "majster but"
     ],
 
-    "Wydatki:Sport": [
+    "Sport": [
       "decathlon",
       "wirtualnebiegi",
       "Fabryka Formy",
@@ -403,7 +408,7 @@
       "go sport"
     ],
 
-    "Wydatki:Sprzęt": [
+    "Sprzęt": [
       "x-kom.pl",
       "X-KOM",
       "x - kom",
@@ -413,17 +418,19 @@
       "media markt",
       "euro rtv agd",
       "mediaexpert",
-      "euro-net"
+      "euro-net",
+      "TERG SA"
     ],
 
-    "Wydatki:Transport": [
+    "Transport": [
       "bilet.intercity.pl",
       "www.biletyregionalne.pl",
       "uber",
-      "przewozy regionalne"
+      "przewozy regionalne",
+      "flixbus"
     ],
 
-    "Wydatki:Samochód": [
+    "Samochód": [
       "info-car.pl",
       "osk pegaz",
       "ergo hestia",
@@ -453,28 +460,26 @@
       "foltyn",
       "autodna",
       "mennica automat",
-      "mennica  automat"
+      "mennica  automat",
+      "uniqa"
     ],
 
-    "Wydatki:Urząd skarbowy": [
+    "Urząd skarbowy": [
       "Urząd skarbowy"
     ],
 
-    "Przychód:Wynagrodzenie": [
+    "Wynagrodzenie": [
       "exant",
       "halasdev",
       "nazwa nadawcy: mc donalds polska",
       "nazwa nadawcy: arp ideas",
       "nazwa nadawcy: centermed poznań spółka",
-      "nazwa nadawcy: efitness"
+      "nazwa nadawcy: efitness",
+      "wynagrodzenie",
+      "Umowa o dzieło"
     ],
 
-    "Wydatki:Firma": [
-      "halasdev",
-      "małgorzata jasicka"
-    ],
-
-    "Wydatki:Zdrowie": [
+    "Zdrowie": [
       "rehasport",
       "apteka",
       "PHYSIOART FIZJOTE",
@@ -490,28 +495,24 @@
       "ola fizjo"
     ],
 
-    "Wydatki:Psycholog": [
+    "Psycholog": [
       "PRACOWNIA PSYCHOL",
       "AGATA KAŁUŻNA"
     ],
 
-    "Wydatki:Oszczędzanie": [
-      "AUTOOSZCZĘDZANIE-PRZELEW"
-    ],
-
-    "Przychód:Oszczędzanie": [
+    "Oszczędzanie": [
       "odsetki należne lokaty",
       "kapitalizacja odsetek"
     ],
 
-    "Wydatki:Uczelnia": [
+    "Uczelnia": [
       "WSNHID ul. Gen Tadeusza Kutrzeby 10",
       "Collegium davinci",
       "wsnhid",
       "politechnika poznańska"
     ],
 
-    "Wydatki:Bank": [
+    "Bank": [
       "kod z karty kodów",
       "opłata miesięczna za kartę",
       "podatek od odsetek kapitałowych",
@@ -521,22 +522,16 @@
       "kwota cash back"
     ],
 
-    "Wydatki:Zwiedzanie": [
+    "Zwiedzanie": [
       "twierdza srebrna gora",
       "zamek grodno",
-      "schronisko na szczelincu",
+      "schronisko na szczelincu"
     ],
 
-    "Przychód:Stypendium": [
+    "Stypendium": [
       "wyższa szkoła nauk humanistycznych i dziennikarstwa",
       "A42512500",
       "nazwa nadawcy: collegium da vinci"
     ]
-  },
-
-  "IgnoredTransactionDescriptions": [
-    "Tytuł: OTWARCIE LOKATY",
-    "Tytuł: ZERWANIE LOKATY",
-    "Tytuł: WYGAŚNIĘCIE LOKATY"
-  ]
+  }
 }
