@@ -2,7 +2,7 @@
   "profiles": {
     "DataAnalyzer": {
       "commandName": "Project",
-      "commandLineArgs": "--file=z:\\Expenses\\history_20130501-20230831.csv --bank-type=PkoBP --output-format=CSV"
+      "commandLineArgs": "--file=z:\\Expenses\\all_history.csv --bank-type=PkoBP --output-format=CSV"
     }
   }
 }

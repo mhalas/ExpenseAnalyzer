@@ -26,6 +26,7 @@ namespace Shared.Output
             if (!_configuration.SplitIntoChunks.HasValue)
             {
                 CreateSingleFile(data);
+                return;
             }
 
             int part = 1;
