@@ -5,8 +5,8 @@
     /// </summary>
     public class PayByCardTransactionType : BaseTransactionType, ITransactionType
     {
-        private int TargetAccountIndex = 6;
-        private int TargetNameIndex = 7;
+        private int TargetAccountIndex = 5;
+        private int TargetNameIndex = 6;
 
         public override string GetTargetAccount(string[] rowColumns)
         {
@@ -20,7 +20,7 @@
 
         public override string GetDescription(string[] rowColumns)
         {
-            return string.Empty;
+            return GetTargetName(rowColumns);
         }
     }
 }

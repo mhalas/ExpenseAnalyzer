@@ -31,7 +31,6 @@ namespace Tests.TransactionTypes.PKOBP
                 "\"Wypłata z bankomatu\"," +
                 "\"{1}\"," +
                 "\"{2}\"," +
-                "\"0\"," +
                 "\"Tytuł : {3}\"," +
                 "\"Lokalizacja : Adres : {4} Miasto : TESTOWO Kraj : POLSKA\"," +
                 "\"Data i czas operacji : 2023-01-16\"," +

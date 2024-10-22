@@ -1,7 +1,7 @@
 {
   "UseAbsoluteValuesForAmount": false,
   "GenerateSummary": false,
-  "SplitIntoChunks": 5000,
+  //"SplitIntoChunks": 5000,
 
   "DefaultIncomeCategoryName": "Inne",
   "DefaultExpenseCategoryName": "Inne",
@@ -504,6 +504,10 @@
     "Oszczędzanie": [
       "odsetki należne lokaty",
       "kapitalizacja odsetek"
+    ],
+
+    "Autooszczędzanie": [
+      "AUTOOSZCZĘDZANIE-PRZELEW"
     ],
 
     "Uczelnia": [

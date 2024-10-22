@@ -1,6 +1,6 @@
 ﻿using NLog;
-using Shared.BankAnalyzer;
 using Shared.Output;
+using Shared.TransactionsProcessors;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
@@ -18,7 +18,7 @@ namespace Shared.SourceData
             _filePath = filePath;
         }
 
-        public void Execute(IBankAnalyzer bankAnalyzer, IDataOutput outputLogic)
+        public void Execute(ITransactionsProcessor transactionProcessor, IDataOutput outputLogic)
         {
             using (var reader = new StreamReader(_filePath))
             {
@@ -26,8 +26,8 @@ namespace Shared.SourceData
 
                 Logger.Info($@"Start analyzing file {_filePath}.");
                 time.Start();
-                var result = bankAnalyzer
-                    .AnalyzeExpenseHistory(reader.ReadToEnd())
+                var result = transactionProcessor
+                    .ProcessTransactions(reader.ReadToEnd())
                     .OrderBy(x => x.ValueDate);
 
                 Logger.Info("Analyze complete.");

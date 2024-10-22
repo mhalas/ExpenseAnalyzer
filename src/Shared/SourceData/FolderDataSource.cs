@@ -1,7 +1,7 @@
 ﻿using NLog;
-using Shared.BankAnalyzer;
 using Shared.Dto;
 using Shared.Output;
+using Shared.TransactionsProcessors;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
@@ -20,12 +20,12 @@ namespace Shared.SourceData
             _filesSourcePath = filesSourcePath;
         }
 
-        public void Execute(IBankAnalyzer bankAnalyzer, IDataOutput outputLogic)
+        public void Execute(ITransactionsProcessor bankAnalyzer, IDataOutput outputLogic)
         {
             Stopwatch time = new Stopwatch();
             time.Start();
 
-            var expenseHistory = new List<ExpenseDataRow>();
+            var expenseHistory = new List<ExpenseTransaction>();
 
             var files = Directory.GetFiles(_filesSourcePath);
             foreach (var file in files)
@@ -33,7 +33,7 @@ namespace Shared.SourceData
                 using (var reader = new StreamReader(file))
                 {
                     Logger.Info($@"Start analyzing file {file}.");
-                    var result = bankAnalyzer.AnalyzeExpenseHistory(reader.ReadToEnd());
+                    var result = bankAnalyzer.ProcessTransactions(reader.ReadToEnd());
                     expenseHistory.AddRange(result);
                     Logger.Info("Analyze complete.");
                 }

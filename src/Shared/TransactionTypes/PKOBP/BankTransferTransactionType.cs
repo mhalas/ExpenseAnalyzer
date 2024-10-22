@@ -5,9 +5,9 @@
     /// </summary>
     public class BankTransferTransactionType : BaseTransactionType, ITransactionType
     {
-        private const int TargetAccountIndex = 6;
-        private const int TargetNameIndex = 7;
-        private const int DescriptionIndex = 8;
+        private const int TargetAccountIndex = 5;
+        private const int TargetNameIndex = 6;
+        private const int DescriptionIndex = 7;
 
         public override string GetTargetAccount(string[] rowColumns)
         {

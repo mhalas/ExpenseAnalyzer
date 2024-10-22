@@ -5,6 +5,6 @@ namespace Shared.Output
 {
     public interface IDataOutput
     {
-        void OutputData(IEnumerable<ExpenseDataRow> data);
+        void OutputData(IEnumerable<ExpenseTransaction> data);
     }
 }

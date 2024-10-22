@@ -32,7 +32,6 @@ namespace Tests.TransactionTypes.PKOBP
             "\"Naliczenie odsetek\"," +
             "\"{1}\"," +
             "\"{2}\"," +
-            "\"100.25\"," +
             "\"Tytuł : {3}\"",
 
             ExpectedDescription = "Naliczenie odsetek; DESCRIPTION"
@@ -49,7 +48,6 @@ namespace Tests.TransactionTypes.PKOBP
             "\"Opłata\"," +
             "\"{1}\"," +
             "\"{2}\"," +
-            "\"100.25\"," +
             "\"Tytuł : {3}\"",
 
             ExpectedDescription = "Opłata; DESCRIPTION"
@@ -66,7 +64,6 @@ namespace Tests.TransactionTypes.PKOBP
             "\"Opłata za użytkowanie karty\"," +
             "\"{1}\"," +
             "\"{2}\"," +
-            "\"100.25\"," +
             "\"Tytuł : {3}\"",
 
             ExpectedDescription = "Opłata za użytkowanie karty; OPŁATA PROP. ZA KARTĘ421234******9876, 20.01-21.01"
@@ -82,7 +79,6 @@ namespace Tests.TransactionTypes.PKOBP
             "\"Prowizja\"," +
             "\"{1}\"," +
             "\"{2}\"," +
-            "\"100.25\"," +
             "\"Tytuł : {3}\"",
 
             ExpectedDescription = "Prowizja; DESCRIPTION"
@@ -100,7 +96,6 @@ namespace Tests.TransactionTypes.PKOBP
             "\"Płatność kartą\"," +
             "\"{1}\"," +
             "\"{2}\"," +
-            "\"100.25\"," +
             "\"Tytuł : {3}\"," +
             "\"Lokalizacja : Adres : {4} Miasto : TESTOWO Kraj : TEST\"," +
             "\"Data i czas operacji : 2023-01-15\"," +
@@ -131,7 +126,6 @@ namespace Tests.TransactionTypes.PKOBP
                         "\"Wpłata gotówkowa w kasie\"," +
                         "\"{1}\"," +
                         "\"{2}\"," +
-                        "\"100.25\"," +
                         "\"Nazwa nadawcy : {3}\"," +
                         "\"Adres nadawcy : UL.TESTOWA 1 10-222 TEST TEST\"," +
                         "\"Tytuł : {4}\"",
@@ -160,7 +154,6 @@ namespace Tests.TransactionTypes.PKOBP
                         "\"Przelew na konto\"," +
                         "\"{1}\"," +
                         "\"{2}\"," +
-                        "\"100.25\"," +
                         "\"Rachunek nadawcy : {3}\"," +
                         "\"Nazwa nadawcy : {4}\"," +
                         "\"Adres nadawcy : UL.TESTOWA 1 10-222 TEST TEST\"," +
@@ -192,7 +185,6 @@ namespace Tests.TransactionTypes.PKOBP
                         "\"Transaction Type\"," +
                         "\"{1}\"," +
                         "\"{2}\"," +
-                        "\"100.25\"," +
                         "\"Rachunek odbiorcy : {3}\"," +
                         "\"Nazwa odbiorcy : {4}\"," +
                         "\"Tytuł : {5}OD: 48123456789 DO: 489*****321\"",
@@ -222,7 +214,6 @@ namespace Tests.TransactionTypes.PKOBP
                         "\"Transaction Type\"," +
                         "\"{1}\"," +
                         "\"{2}\"," +
-                        "\"100.25\"," +
                         "\"Rachunek nadawcy : {3}\"," +
                         "\"Nazwa nadawcy : {4}\"," +
                         "\"Tytuł : {5}OD: 48123456789 DO: 489*****321\"",
@@ -252,7 +243,6 @@ namespace Tests.TransactionTypes.PKOBP
                         "\"Transaction Type\"," +
                         "\"{1}\"," +
                         "\"{2}\"," +
-                        "\"0\"," +
                         "\"Rachunek nadawcy : {3}\"," +
                         "\"Nazwa nadawcy : {4}\"," +
                         "\"Adres nadawcy : UL.TESTOWA 1 10-222 TEST TEST\"," +
@@ -286,7 +276,6 @@ namespace Tests.TransactionTypes.PKOBP
                         "\"Płatność web - kod mobilny\"," +
                         "\"{1}\"," +
                         "\"{2}\"," +
-                        "\"100.25\"," +
                         "\"Tytuł : 00000000000000000\"," +
                         "\"Numer telefonu : 48123456789\"," +
                         "\"Lokalizacja : Adres : {3}\"," +
@@ -317,7 +306,6 @@ namespace Tests.TransactionTypes.PKOBP
                         "\"Płatność web - kod mobilny\"," +
                         "\"{1}\"," +
                         "\"{2}\"," +
-                        "\"100.25\"," +
                         "\"Numer telefonu : 48123456789\"," +
                         "\"Lokalizacja : Adres : {3}\"," +
                         "\"Data i czas operacji : 2023-01-15T12:00:00+02:00\"," +
@@ -347,7 +335,6 @@ namespace Tests.TransactionTypes.PKOBP
                         "\"Płatność web - kod mobilny\"," +
                         "\"{1}\"," +
                         "\"{2}\"," +
-                        "\"100.25\"," +
                         "\"Nazwa odbiorcy : TEST\"," +
                         "\"Adres odbiorcy : UL.TESTOWA 1 10-222 TEST TEST\"," +
                         "\"Tytuł : {4}\"," +
@@ -381,7 +368,6 @@ namespace Tests.TransactionTypes.PKOBP
                         "\"Przelew z rachunku\"," +
                         "\"{1}\"," +
                         "\"{2}\"," +
-                        "\"100.25\"," +
                         "\"Nazwa odbiorcy : {3}\"," +
                         "\"Adres odbiorcy : UL. TESTOWA 1 10-222 TEST\"," +
                         "\"Tytuł : {4}\"," +
@@ -412,7 +398,6 @@ namespace Tests.TransactionTypes.PKOBP
                         "\"Przelew z rachunku\"," +
                         "\"{1}\"," +
                         "\"{2}\"," +
-                        "\"100.25\"," +
                         "\"Rachunek odbiorcy : {3}\"," +
                         "\"Nazwa odbiorcy : {4}\"," +
                         "\"Adres odbiorcy : UL. TESTOWA 1 10-222 TEST\"," +
@@ -445,7 +430,6 @@ namespace Tests.TransactionTypes.PKOBP
                         "\"Przelew z rachunku\"," +
                         "\"{1}\"," +
                         "\"{2}\"," +
-                        "\"100.25\"," +
                         "\"Rachunek odbiorcy : {3}\"," +
                         "\"Nazwa odbiorcy : {4}\"," +
                         "\"Tytuł : {5}\"," +
@@ -477,7 +461,6 @@ namespace Tests.TransactionTypes.PKOBP
                         "\"Przelew z rachunku\"," +
                         "\"{1}\"," +
                         "\"{2}\"," +
-                        "\"100.25\"," +
                         "\"Rachunek odbiorcy : {3}\"," +
                         "\"Nazwa odbiorcy : {4}\"," +
                         "\"Tytuł : {5}\"",
@@ -508,7 +491,6 @@ namespace Tests.TransactionTypes.PKOBP
                         "\"Przelew z rachunku\"," +
                         "\"{1}\"," +
                         "\"{2}\"," +
-                        "\"100.25\"," +
                         "\"Nazwa odbiorcy : {3}\"," +
                         "\"Tytuł : {4}\"",
                         TransferFromAccount.Case5.TransactionDate.ToString("yyyy-MM-dd"),
@@ -537,7 +519,6 @@ namespace Tests.TransactionTypes.PKOBP
                         "\"Przelew z rachunku\"," +
                         "\"{1}\"," +
                         "\"{2}\"," +
-                        "\"100.25\"," +
                         "\"Rachunek nadawcy : {3}\"," +
                         "\"Nazwa nadawcy : {4}\"," +
                         "\"Adres nadawcy : UL. TESTOWA 1 10-222 TEST\"," +
@@ -569,7 +550,6 @@ namespace Tests.TransactionTypes.PKOBP
                         "\"Przelew z rachunku\"," +
                         "\"{1}\"," +
                         "\"{2}\"," +
-                        "\"100.25\"," +
                         "\"Nazwa nadawcy : {3}\"," +
                         "\"Adres nadawcy : UL. TESTOWA 1 10-222 TEST\"," +
                         "\"Tytuł : {4}\"",
@@ -599,7 +579,6 @@ namespace Tests.TransactionTypes.PKOBP
                         "\"Przelew z rachunku\"," +
                         "\"{1}\"," +
                         "\"{2}\"," +
-                        "\"100.25\"," +
                         "\"Rachunek nadawcy : {3}\"," +
                         "\"Adres nadawcy : UL. TESTOWA 1 10-222 TEST\"," +
                         "\"Tytuł : {4}\"",

@@ -1,12 +1,12 @@
-﻿namespace Shared.TransactionTypes.PKOBP
+﻿  namespace Shared.TransactionTypes.PKOBP
 {
     /// <summary>
     /// Płatność web - kod mobilny
     /// </summary>
     public class PayByWebTransactionType : BaseTransactionType, ITransactionType
     {
-        private const int TargetNameIndex = 7;
-        private const int DescriptionIndex = 8;
+        private const int TargetNameIndex = 6;
+        private const int DescriptionIndex = 7;
 
         public override string GetDescription(string[] rowColumns)
         {
@@ -15,7 +15,7 @@
                 return rowColumns[DescriptionIndex].Split("Tytuł : ")[1];
             }
 
-            return string.Empty;
+            return GetTargetName(rowColumns);
         }
 
         public override string GetTargetAccount(string[] rowColumns)

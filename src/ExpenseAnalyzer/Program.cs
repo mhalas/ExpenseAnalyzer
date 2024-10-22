@@ -46,14 +46,14 @@ namespace ExpenseAnalyzer
 
             try
             {
-                var bankAnalyzer = new BankFactory(configuration).GetBankAnalyzer(parameters.Bank);
+                var transactionsProcessor = new BankFactory(configuration).GetBankAnalyzer(parameters.Bank);
                 var outputLogic = new DataOutputFactory(configuration, parameters.FilePath).GetDataOutput(parameters.Output);
 
-                if (bankAnalyzer.CanExecute())
+                if (transactionsProcessor.CanExecute())
                 {
                     var sourceDataExecutor = GetSourceDataExecutor(configuration, parameters);
 
-                    sourceDataExecutor.Execute(bankAnalyzer, outputLogic);
+                    sourceDataExecutor.Execute(transactionsProcessor, outputLogic);
                 }
                 else
                 {

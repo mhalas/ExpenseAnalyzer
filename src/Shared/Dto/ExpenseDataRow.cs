@@ -2,7 +2,7 @@
 
 namespace Shared.Dto
 {
-    public class ExpenseDataRow
+    public class ExpenseTransaction
     {
         public DateTime ValueDate { get; set; }
         public decimal Amount { get; set; }

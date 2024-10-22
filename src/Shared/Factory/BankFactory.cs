@@ -1,7 +1,12 @@
-﻿using Shared.BankAnalyzer;
-using Shared.Configuration;
+﻿using Shared.Configuration;
 using Shared.Enum;
-using Shared.TransactionTypes.PKOBP;
+using Shared.Filters;
+using Shared.Filters.PKOBP;
+using Shared.Modifiers;
+using Shared.Modifiers.PKOBP;
+using Shared.TransactionsProcessors;
+using Shared.TransactionsProcessors.PKOBP;
+using System.Collections.Generic;
 
 namespace Shared.Factory
 {
@@ -14,15 +19,34 @@ namespace Shared.Factory
             _configuration = configuration;
         }
 
-        public IBankAnalyzer GetBankAnalyzer(BankType type)
+        public ITransactionsProcessor GetBankAnalyzer(BankType type)
         {
             switch (type)
             {
                 case BankType.PkoBP:
                 default:
-                    return new PkoBpDataAnalyzer(_configuration, new PKOBPTransactionTypeFactory());
+                    return GetPKOBPTransactionProcessor();
             }
 
+        }
+
+        private ITransactionsProcessor GetPKOBPTransactionProcessor()
+        {
+            var filterAggregator = new FilterAggregator(new List<ITransactionFilter>()
+            {
+                new BankDepositFilter()
+            });
+
+            var modifierAggregator = new ModifierAggregator(new List<ITransactionModifier>()
+            {
+                new SumDepositTransactionsModifier()
+            });
+
+            return new FilteredTransactionsProcessorWrapper(
+                    filterAggregator,
+                    new ModifiedTransactionsProcessorWrapper(
+                        modifierAggregator,
+                        new TransactionsProcessor(_configuration)));
         }
     }
 }

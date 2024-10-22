@@ -38,13 +38,7 @@
                 case "Wypłata z bankomatu":
                 case "Zwrot płatności kartą":
                 case "Wypłata w bankomacie - kod mobilny":
-
                     return new WithdrawTransactionType();
-
-                case "Autooszczędzanie":
-                case "Uznanie":
-                case "Obciążenie":
-                    return new IgnoredTransactionType();
 
                 default:
                     return new OtherTransactionType();

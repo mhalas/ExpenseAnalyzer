@@ -6,8 +6,8 @@
     public class WithdrawTransactionType : BaseTransactionType, ITransactionType
     {
         private const int TypeNameIndex = 2;
-        private const int DescriptionIndex = 6;
-        private const int AddressIndex = 7;
+        private const int DescriptionIndex = 5;
+        private const int AddressIndex = 6;
 
         public override string GetDescription(string[] rowColumns)
         {

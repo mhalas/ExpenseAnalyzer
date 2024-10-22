@@ -6,7 +6,7 @@
     public class BasicTransactionType : BaseTransactionType, ITransactionType
     {
         private const int TransactionTypeIndex = 2;
-        private const int DescriptionIndex = 6;
+        private const int DescriptionIndex = 5;
 
         public override string GetDescription(string[] rowColumns)
         {

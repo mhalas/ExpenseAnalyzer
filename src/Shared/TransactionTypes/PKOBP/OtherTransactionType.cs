@@ -5,8 +5,8 @@ namespace Shared.TransactionTypes.PKOBP
     public class OtherTransactionType : BaseTransactionType, ITransactionType
     {
         private const int TransactionTypeIndex = 2;
-        private const int DescriptionStartIndex = 6;
-        private const int DescriptionEndIndex = 9;
+        private const int DescriptionStartIndex = 5;
+        private const int DescriptionEndIndex = 8;
 
         public override string GetDescription(string[] rowColumns)
         {

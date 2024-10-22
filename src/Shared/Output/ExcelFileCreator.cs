@@ -21,7 +21,7 @@ namespace Shared.Output
             _originFilePath = originFilePath;
         }
 
-        public void OutputData(IEnumerable<ExpenseDataRow> data)
+        public void OutputData(IEnumerable<ExpenseTransaction> data)
         {
             Logger.Debug("Create Excel file.");
 
@@ -46,7 +46,7 @@ namespace Shared.Output
             }
         }
 
-        private void AddIncome(ExcelPackage package, IEnumerable<ExpenseDataRow> data)
+        private void AddIncome(ExcelPackage package, IEnumerable<ExpenseTransaction> data)
         {
             ExcelWorksheet income = package.Workbook.Worksheets.Add("Przychody");
 
@@ -72,7 +72,7 @@ namespace Shared.Output
             }
         }
 
-        private void AddOutcome(ExcelPackage package, IEnumerable<ExpenseDataRow> data)
+        private void AddOutcome(ExcelPackage package, IEnumerable<ExpenseTransaction> data)
         {
             ExcelWorksheet outcome = package.Workbook.Worksheets.Add("Wydatki");
 
@@ -98,7 +98,7 @@ namespace Shared.Output
             }
         }
 
-        private void AddHistory(ExcelPackage package, IEnumerable<ExpenseDataRow> data)
+        private void AddHistory(ExcelPackage package, IEnumerable<ExpenseTransaction> data)
         {
             ExcelWorksheet history = package.Workbook.Worksheets.Add("Historia");
 

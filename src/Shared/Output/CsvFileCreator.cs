@@ -21,7 +21,7 @@ namespace Shared.Output
             _configuration = configuration;
         }
 
-        public void OutputData(IEnumerable<ExpenseDataRow> data)
+        public void OutputData(IEnumerable<ExpenseTransaction> data)
         {
             if (!_configuration.SplitIntoChunks.HasValue)
             {
@@ -37,7 +37,7 @@ namespace Shared.Output
             }
         }
 
-        private void CreateSingleFile(IEnumerable<ExpenseDataRow> data, string fileNamePostfix = null)
+        private void CreateSingleFile(IEnumerable<ExpenseTransaction> data, string fileNamePostfix = null)
         {
             Logger.Debug("Create CSV file.");
 
@@ -53,7 +53,7 @@ namespace Shared.Output
             CreateOutputFile(result, fileNamePostfix);
         }
 
-        private void FillWithData(IEnumerable<ExpenseDataRow> data, StringBuilder stringBuilder)
+        private void FillWithData(IEnumerable<ExpenseTransaction> data, StringBuilder stringBuilder)
         {
             stringBuilder.AppendLine("\"Data waluty\"," +
                 "\"Kwota\"," +
@@ -78,7 +78,7 @@ namespace Shared.Output
             }
         }
 
-        private string GetAmount(ExpenseDataRow row)
+        private string GetAmount(ExpenseTransaction row)
         {
             if (row.Amount >= 0)
             {
@@ -88,7 +88,7 @@ namespace Shared.Output
             return row.Amount.ToString();
         }
 
-        private void FillWithSummary(IEnumerable<ExpenseDataRow> data, StringBuilder stringBuilder)
+        private void FillWithSummary(IEnumerable<ExpenseTransaction> data, StringBuilder stringBuilder)
         {
             stringBuilder.AppendLine();
             stringBuilder.AppendLine("Wydatki,,");

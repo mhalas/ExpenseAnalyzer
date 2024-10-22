@@ -1,29 +1,29 @@
 ﻿using NLog;
-using OfficeOpenXml.FormulaParsing.Excel.Functions.Database;
 using Shared.Configuration;
 using Shared.Dto;
 using Shared.TransactionTypes;
 using Shared.TransactionTypes.PKOBP;
 using System;
 using System.Collections.Generic;
-using System.Data.Common;
 using System.Linq;
 
-namespace Shared.BankAnalyzer
+namespace Shared.TransactionsProcessors.PKOBP
 {
-    public class PkoBpDataAnalyzer : IBankAnalyzer
+    public class TransactionsProcessor : ITransactionsProcessor
     {
         private static ILogger Logger = LogManager.GetCurrentClassLogger();
 
         private const int TransactionTypeIndex = 2;
 
         private readonly ConfigurationDto _configuration;
+
         private readonly PKOBPTransactionTypeFactory _factory;
 
-        public PkoBpDataAnalyzer(ConfigurationDto configuration, PKOBPTransactionTypeFactory factory)
+        public TransactionsProcessor(ConfigurationDto configuration)
         {
             _configuration = configuration;
-            _factory = factory;
+
+            _factory = new PKOBPTransactionTypeFactory();
         }
 
         public bool CanExecute()
@@ -31,25 +31,19 @@ namespace Shared.BankAnalyzer
             return true;
         }
 
-        public IEnumerable<ExpenseDataRow> AnalyzeExpenseHistory(string historyData)
+        public IEnumerable<ExpenseTransaction> ProcessTransactions(string historyData)
         {
-            Logger.Debug("Analyzing PkoBP history.");
+            Logger.Debug("Analyzing PKO BP history.");
 
-            var rows = AnalyzeHistoryData(historyData);
-            return rows;
-        }
-
-        private IEnumerable<ExpenseDataRow> AnalyzeHistoryData(string historyData)
-        {
             var rows = historyData.Split('\n').ToList();
             rows.RemoveAt(0);
 
             List<string> succeedRows = new List<string>();
             List<string> failedRows = new List<string>();
             List<string> ignoredRows = new List<string>();
-            
 
-            var result = new List<ExpenseDataRow>();
+
+            var result = new List<ExpenseTransaction>();
             for (int i = 0; i < rows.Count; i++)
             {
                 var row = rows[i].Replace("\"\r", "");
@@ -79,7 +73,7 @@ namespace Shared.BankAnalyzer
                     var category = GetCategory(transactionRow);
 
                     var amount = GetAbsoluteValueOfAmount(transactionRow.Amount);
-                    result.Add(new ExpenseDataRow
+                    result.Add(new ExpenseTransaction
                     {
                         Amount = amount,
                         Category = category,
@@ -91,7 +85,7 @@ namespace Shared.BankAnalyzer
 
                     succeedRows.Add(row);
                 }
-                catch(Exception ex)
+                catch (Exception ex)
                 {
                     Logger.Error(ex, $"Error occured for row {i + 1}\r\n{row}.");
                     failedRows.Add(row);
@@ -119,7 +113,7 @@ namespace Shared.BankAnalyzer
         {
             var category = _configuration
                 .CategoryDictionary
-                .FirstOrDefault(x => x.Value.Any(y => 
+                .FirstOrDefault(x => x.Value.Any(y =>
                     row.Description.ToLower().Contains(y.ToLower()) ||
                     row.TargetAccount.ToLower().Contains(y.ToLower()) ||
                     row.TargetName.ToLower().Contains(y.ToLower())));

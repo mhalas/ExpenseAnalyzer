@@ -1,10 +1,10 @@
-﻿using Shared.BankAnalyzer;
-using Shared.Output;
+﻿using Shared.Output;
+using Shared.TransactionsProcessors;
 
 namespace Shared.SourceData
 {
     public interface ISourceDataExecutor
     {
-        void Execute(IBankAnalyzer bankAnalyzer, IDataOutput outputLogic);
+        void Execute(ITransactionsProcessor bankAnalyzer, IDataOutput outputLogic);
     }
 }
