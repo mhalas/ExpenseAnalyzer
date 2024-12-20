@@ -10,11 +10,11 @@ namespace BudgetManager.Shared.Configuration
 
             string sourceFilesPath,
             string outputPath,
+            int? splitIntoChunks,
 
             bool useAbsoluteValuesForAmount,
             bool generateSummary,
 
-            IDictionary<string, List<ConfigurationColumnDto>> columnDefinitions,
             IDictionary<string, List<string>> categoryDictionary)
         {
             DefaultIncomeCategoryName = defaultIncomeCategoryName;
@@ -22,11 +22,10 @@ namespace BudgetManager.Shared.Configuration
 
             SourceFilesPath = sourceFilesPath;
             OutputPath = outputPath;
-
+            SplitIntoChunks = splitIntoChunks;
             UseAbsoluteValuesForAmount = useAbsoluteValuesForAmount;
             GenerateSummary = generateSummary;
 
-            ColumnDefinitions = columnDefinitions;
             CategoryDictionary = categoryDictionary;
         }
         public string DefaultIncomeCategoryName { get; }
@@ -34,11 +33,11 @@ namespace BudgetManager.Shared.Configuration
 
         public string SourceFilesPath { get; }
         public string OutputPath { get; }
+        public int? SplitIntoChunks { get; }
 
         public bool UseAbsoluteValuesForAmount { get; }
         public bool GenerateSummary { get; }
 
-        public IDictionary<string, List<ConfigurationColumnDto>> ColumnDefinitions { get; }
         public IDictionary<string, List<string>> CategoryDictionary { get; }
     }
 }

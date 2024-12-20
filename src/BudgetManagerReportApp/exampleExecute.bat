@@ -1,1 +1,1 @@
-ExpenseAnalyzer.exe --file=./history.csv --bank-type=PkoBP
+BudgetManagerReportApp.exe --file=./history.csv --bank-type=PkoBP

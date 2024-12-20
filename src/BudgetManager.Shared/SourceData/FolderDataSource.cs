@@ -1,10 +1,11 @@
+using BudgetManager.Shared.Models;
+using BudgetManager.Shared.Output;
+using BudgetManager.Shared.TransactionsProcessors;
+using NLog;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
-using BudgetManager.Shared.BankAnalyzer;
-using BudgetManager.Shared.Models;
-using BudgetManager.Shared.Output;
-using NLog;
+using System.Linq;
 
 namespace BudgetManager.Shared.SourceData
 {
@@ -19,12 +20,12 @@ namespace BudgetManager.Shared.SourceData
             _filesSourcePath = filesSourcePath;
         }
 
-        public void Execute(IBankAnalyzer bankAnalyzer, IDataOutput outputLogic)
+        public void Execute(ITransactionsProcessor bankAnalyzer, IDataOutput outputLogic)
         {
             Stopwatch time = new Stopwatch();
             time.Start();
 
-            var expenseHistory = new List<TransactionRow>();
+            var expenseHistory = new List<TransactionResultRow>();
 
             var files = Directory.GetFiles(_filesSourcePath);
             foreach (var file in files)
@@ -32,11 +33,15 @@ namespace BudgetManager.Shared.SourceData
                 using (var reader = new StreamReader(file))
                 {
                     Logger.Info($@"Start analyzing file {file}.");
-                    var result = bankAnalyzer.AnalyzeExpenseHistory(reader.ReadToEnd());
+                    var result = bankAnalyzer.ProcessTransactions(reader.ReadToEnd());
                     expenseHistory.AddRange(result);
                     Logger.Info("Analyze complete.");
                 }
             }
+
+            expenseHistory = expenseHistory
+                .OrderBy(x => x.ValueDate)
+                .ToList();
 
             outputLogic.OutputData(expenseHistory);
             time.Stop();

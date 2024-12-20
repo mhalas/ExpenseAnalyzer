@@ -1,12 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Threading.Tasks;
-using BudgetManager.Shared.Extension;
+﻿using BudgetManager.Shared.Extension;
 using BudgetManager.Shared.Models;
 using NLog;
 using OfficeOpenXml;
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
 
 namespace BudgetManager.Shared.Output
 {
@@ -22,7 +21,7 @@ namespace BudgetManager.Shared.Output
             _originFilePath = originFilePath;
         }
 
-        public Task OutputData(IEnumerable<TransactionRow> data)
+        public void OutputData(IEnumerable<TransactionResultRow> data)
         {
             Logger.Debug("Create Excel file.");
 
@@ -45,11 +44,9 @@ namespace BudgetManager.Shared.Output
                 var file = new FileInfo(fullFilePath);
                 package.SaveAs(file);
             }
-
-            return Task.CompletedTask;
         }
 
-        private void AddIncome(ExcelPackage package, IEnumerable<TransactionRow> data)
+        private void AddIncome(ExcelPackage package, IEnumerable<TransactionResultRow> data)
         {
             ExcelWorksheet income = package.Workbook.Worksheets.Add("Przychody");
 
@@ -75,7 +72,7 @@ namespace BudgetManager.Shared.Output
             }
         }
 
-        private void AddOutcome(ExcelPackage package, IEnumerable<TransactionRow> data)
+        private void AddOutcome(ExcelPackage package, IEnumerable<TransactionResultRow> data)
         {
             ExcelWorksheet outcome = package.Workbook.Worksheets.Add("Wydatki");
 
@@ -101,7 +98,7 @@ namespace BudgetManager.Shared.Output
             }
         }
 
-        private void AddHistory(ExcelPackage package, IEnumerable<TransactionRow> data)
+        private void AddHistory(ExcelPackage package, IEnumerable<TransactionResultRow> data)
         {
             ExcelWorksheet history = package.Workbook.Worksheets.Add("Historia");
 
@@ -127,7 +124,6 @@ namespace BudgetManager.Shared.Output
 
                 rowNumber++;
             }
-
         }
     }
 }

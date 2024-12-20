@@ -1,11 +1,10 @@
-﻿using System.Collections.Generic;
-using System.Threading.Tasks;
-using BudgetManager.Shared.Models;
+﻿using BudgetManager.Shared.Models;
+using System.Collections.Generic;
 
 namespace BudgetManager.Shared.Output
 {
     public interface IDataOutput
     {
-        Task OutputData(IEnumerable<TransactionRow> data);
+        void OutputData(IEnumerable<TransactionResultRow> data);
     }
 }

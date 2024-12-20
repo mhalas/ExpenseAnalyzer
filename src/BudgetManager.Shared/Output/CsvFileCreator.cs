@@ -1,13 +1,12 @@
-﻿using System;
+﻿using BudgetManager.Shared.Configuration;
+using BudgetManager.Shared.Extension;
+using BudgetManager.Shared.Models;
+using NLog;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
-using BudgetManager.Shared.Configuration;
-using BudgetManager.Shared.Extension;
-using BudgetManager.Shared.Models;
-using NLog;
 
 namespace BudgetManager.Shared.Output
 {
@@ -15,17 +14,30 @@ namespace BudgetManager.Shared.Output
     {
         private static ILogger Logger = LogManager.GetCurrentClassLogger();
 
-        private readonly string _originFilePath;
         private readonly ConfigurationDto _configuration;
 
-        public CsvFileCreator(string originFilePath,
-            ConfigurationDto configuration)
+        public CsvFileCreator(ConfigurationDto configuration)
         {
-            _originFilePath = originFilePath;
             _configuration = configuration;
         }
 
-        public Task OutputData(IEnumerable<TransactionRow> data)
+        public void OutputData(IEnumerable<TransactionResultRow> data)
+        {
+            if (!_configuration.SplitIntoChunks.HasValue)
+            {
+                CreateSingleFile(data);
+                return;
+            }
+
+            int part = 1;
+            foreach (var chunkedList in data.Chunk(_configuration.SplitIntoChunks.Value))
+            {
+                CreateSingleFile(chunkedList, $@"_Part{part}");
+                part++;
+            }
+        }
+
+        private void CreateSingleFile(IEnumerable<TransactionResultRow> data, string fileNamePostfix = null)
         {
             Logger.Debug("Create CSV file.");
 
@@ -38,24 +50,37 @@ namespace BudgetManager.Shared.Output
             }
 
             var result = stringBuilder.ToString();
-            GenerateOutputFile(result);
-
-            return Task.CompletedTask;
+            GenerateOutputFile(result, fileNamePostfix);
         }
 
-        private void FillWithData(IEnumerable<TransactionRow> data, StringBuilder stringBuilder)
+        private void FillWithData(IEnumerable<TransactionResultRow> data, StringBuilder stringBuilder)
         {
-            stringBuilder.AppendLine("\"Data waluty\",\"Kwota\",\"Opis\",\"Kategoria\"");
+            stringBuilder.AppendLine("\"Data waluty\"," +
+                "\"Kwota\"," +
+                "\"Konto bankowe\"," +
+                "\"Nazwa\"," +
+                "\"Opis\"," +
+                "\"Kategoria\"");
 
             foreach (var row in data)
             {
-                stringBuilder.AppendLine($"\"{row.ValueDate.ToString("yyyy-MM-dd")}\",\"{GetAmount(row)}\",\"{row.Description}\",\"{row.Category}\"");
+                stringBuilder.AppendLine($"\"{row.ValueDate.ToString("yyyy-MM-dd")}\"," +
+                    $"\"{GetAmount(row)}\"," +
+                    GetCell(row.TargetAccount) +
+                    GetCell(row.TargetName) +
+                    GetCell(row.Description) +
+                    $"\"{row.Category}\"");
+            }
+
+            string GetCell(string data)
+            {
+                return string.IsNullOrEmpty(data) ? "\"\"," : $"\"{data}\",";
             }
         }
 
-        private string GetAmount(TransactionRow row)
+        private string GetAmount(TransactionResultRow row)
         {
-            if(row.Amount >= 0)
+            if (row.Amount >= 0)
             {
                 return @$"+{row.Amount}";
             }
@@ -63,7 +88,7 @@ namespace BudgetManager.Shared.Output
             return row.Amount.ToString();
         }
 
-        private void FillWithSummary(IEnumerable<TransactionRow> data, StringBuilder stringBuilder)
+        private void FillWithSummary(IEnumerable<TransactionResultRow> data, StringBuilder stringBuilder)
         {
             stringBuilder.AppendLine();
             stringBuilder.AppendLine("Wydatki,,");
@@ -88,17 +113,15 @@ namespace BudgetManager.Shared.Output
             }
         }
 
-        private Task GenerateOutputFile(string result)
+        private void GenerateOutputFile(string result, string fileNamePostfix = null)
         {
             if (!Directory.Exists(_configuration.OutputPath))
                 Directory.CreateDirectory(_configuration.OutputPath);
 
-            var fullFilePath = Path.Combine(_configuration.OutputPath, $"AnalyzedHistory-{DateTime.Now.ToString("yyyy-MM-dd-HH-mm-ss")}.csv");
+            var fullFilePath = Path.Combine(_configuration.OutputPath, $"AnalyzedHistory-{DateTime.Now.ToString("yyyy-MM-dd-HH-mm-ss")}{fileNamePostfix}.csv");
 
             Logger.Info($"Save analyzed file to {fullFilePath}.");
             File.WriteAllText(fullFilePath, result, Encoding.UTF8);
-
-            return Task.CompletedTask;
         }
     }
 }

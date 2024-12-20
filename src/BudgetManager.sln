@@ -11,6 +11,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BudgetManager.Shared", "Bud
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BudgetManagerReportApp", "BudgetManagerReportApp\BudgetManagerReportApp.csproj", "{4EFC92F4-9F50-45FC-A1F3-70C77C7A1688}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tests", "Tests\Tests.csproj", "{B0A01C1E-6236-429D-8588-0415BBA3A983}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -51,6 +53,14 @@ Global
 		{4EFC92F4-9F50-45FC-A1F3-70C77C7A1688}.Release|Any CPU.Build.0 = Release|Any CPU
 		{4EFC92F4-9F50-45FC-A1F3-70C77C7A1688}.Release|x64.ActiveCfg = Release|x64
 		{4EFC92F4-9F50-45FC-A1F3-70C77C7A1688}.Release|x64.Build.0 = Release|x64
+		{B0A01C1E-6236-429D-8588-0415BBA3A983}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B0A01C1E-6236-429D-8588-0415BBA3A983}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B0A01C1E-6236-429D-8588-0415BBA3A983}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{B0A01C1E-6236-429D-8588-0415BBA3A983}.Debug|x64.Build.0 = Debug|Any CPU
+		{B0A01C1E-6236-429D-8588-0415BBA3A983}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B0A01C1E-6236-429D-8588-0415BBA3A983}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B0A01C1E-6236-429D-8588-0415BBA3A983}.Release|x64.ActiveCfg = Release|Any CPU
+		{B0A01C1E-6236-429D-8588-0415BBA3A983}.Release|x64.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

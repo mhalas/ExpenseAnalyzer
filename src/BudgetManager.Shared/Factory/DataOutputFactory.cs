@@ -14,7 +14,7 @@ namespace BudgetManager.Shared.Factory
                     return new ExcelFileCreator(originFilePath);
                 case OutputType.CSV:
                 default:
-                    return new CsvFileCreator(originFilePath, configuration);
+                    return new CsvFileCreator(configuration);
 
 
             }

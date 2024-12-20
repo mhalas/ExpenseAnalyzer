@@ -22,7 +22,7 @@ namespace BudgetManagerReportApp.Parameters
             }
             
             if(!parametersDictionary.ContainsKey(BankTypeParameterName)
-                || !Enum.IsDefined(typeof(BankType), parametersDictionary[BankTypeParameterName]))
+                || !Enum.IsDefined(typeof(BankType), (object)parametersDictionary[BankTypeParameterName]))
             {
                 throw new ParameterException(BankTypeParameterName);
             }
@@ -32,7 +32,7 @@ namespace BudgetManagerReportApp.Parameters
             OutputType outputType = OutputType.CSV;
             if (parametersDictionary.ContainsKey(OutputFormatParameterName))
             {
-                if(Enum.IsDefined(typeof(OutputType), parametersDictionary[OutputFormatParameterName]))
+                if(Enum.IsDefined(typeof(OutputType), (object)parametersDictionary[OutputFormatParameterName]))
                     outputType = (OutputType)Enum.Parse(typeof(OutputType), parametersDictionary[OutputFormatParameterName]);
                 else
                     throw new ParameterException(OutputFormatParameterName);

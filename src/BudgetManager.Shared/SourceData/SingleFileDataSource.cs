@@ -1,8 +1,9 @@
+using BudgetManager.Shared.Output;
+using BudgetManager.Shared.TransactionsProcessors;
+using NLog;
 using System.Diagnostics;
 using System.IO;
-using BudgetManager.Shared.BankAnalyzer;
-using BudgetManager.Shared.Output;
-using NLog;
+using System.Linq;
 
 namespace BudgetManager.Shared.SourceData
 {
@@ -17,7 +18,7 @@ namespace BudgetManager.Shared.SourceData
             _filePath = filePath;
         }
 
-        public void Execute(IBankAnalyzer bankAnalyzer, IDataOutput outputLogic)
+        public void Execute(ITransactionsProcessor transactionProcessor, IDataOutput outputLogic)
         {
             using (var reader = new StreamReader(_filePath))
             {
@@ -25,7 +26,10 @@ namespace BudgetManager.Shared.SourceData
 
                 Logger.Info($@"Start analyzing file {_filePath}.");
                 time.Start();
-                var result = bankAnalyzer.AnalyzeExpenseHistory(reader.ReadToEnd());
+                var result = transactionProcessor
+                    .ProcessTransactions(reader.ReadToEnd())
+                    .OrderBy(x => x.ValueDate);
+
                 Logger.Info("Analyze complete.");
 
                 outputLogic.OutputData(result);
